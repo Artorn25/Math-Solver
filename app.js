@@ -35,32 +35,30 @@ $(document).ready(function () {
   $("#input-pe1").hide()
   $("#input-pe2").hide()
   $("#formula").hide()
-  $("#formula2").hide()
   $("#submit").hide()
-  $("#submit2").hide()
   $("#Polynomial").click(function () {
     $("#output").show()
     $("#input-a").show()
     $("#input-b").show()
     $("#input-c").show()
     $("#formula").show()
+    document.getElementById("for").placeholder = " Example 6x^2+3x+4=0";
     $("#submit").show()
+    document.getElementById("submit").onclick = function() { Polynomial()}
     $("#input-pe1").hide()
     $("#input-pe2").hide()
-    $("#formula2").hide()
-    $("#submit2").hide()
-  });
+    });
   $("#Pythagorean").click(function () {
     $("#output").show()
     $("#input-pe1").show()
     $("#input-pe2").show()
-    $("#formula2").show()
-    $("#submit2").show()
     $("#input-a").hide()
     $("#input-b").hide()
     $("#input-c").hide()
-    $("#formula").hide()
-    $("#submit").hide()
+    $("#submit").show()
+    document.getElementById("submit").onclick = function() { Pythagorean()}
+    $("#formula").show()
+    document.getElementById("for").placeholder = " Example a^2 + b^2 = c";
   });
 });
 
@@ -69,7 +67,7 @@ function Polynomial() {
     a = document.getElementById('in-a').value,
     b = document.getElementById('in-b').value,
     c = document.getElementById('in-c').value,
-    f = document.getElementById('for-poly').value;
+    f = document.getElementById('for').value;
   const notification = document.getElementById('submit'),
     Alert = document.getElementById('Alert');
   if (o.length < 2) { // Quadratic formula
@@ -87,6 +85,7 @@ function Polynomial() {
         after_front = parseInt(after_front); // 2 ที่ fixed
         let pre_front = front.substring(0, front.indexOf('^') - 1); // ตัวเลขตัวเเรก _x^2
         pre_front = parseFloat(pre_front);
+        // alert(pre_front)
         if (pre_front === a_numbers) {
           i_a = a_numbers; // a
           if (after_front === 2) {
@@ -112,8 +111,7 @@ function Polynomial() {
                       }
                     }
                     else if (isNaN(result2)) result2 = "Can't define value";
-                    // alert(result)
-                    // alert(result2)
+                    
                     notification.addEventListener('click', () => {
                       const noti = new bootstrap.Toast(Alert);
                       noti.show();
@@ -124,7 +122,7 @@ function Polynomial() {
               }
             }
           }
-        } else { alert("Pow in formul not correct") }
+        } else { alert("Pow in formula not correct") }
       } else { alert("Formula not correct") }
     } else { alert("") }
   } else { alert("Error length of output > 1") }
@@ -134,8 +132,8 @@ function Pythagorean() {
   let o = document.getElementById('out').value,
     i = document.getElementById('in-py1').value,
     i2 = document.getElementById('in-py2').value,
-    fo = document.getElementById('for-py').value;
-  const notification = document.getElementById('submit2'),
+    fo = document.getElementById('for').value;
+  const notification = document.getElementById('submit'),
       Alert = document.getElementById('Alert');
   if (o.length < 2) {
     const numbers = check_input(i),

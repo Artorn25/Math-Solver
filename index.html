@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Solver</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" /> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="spinner-box">
+    <div class="spinner"></div>
+  </div>
+
+  <input type="checkbox" id="toggle" class="swap" />
+  <!-- <div class="display">
+    <label for="toggle" class="theme">
+      <div class="circle">
+              <svg class="sun" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35"
+              viewBox="0 0 48 48">
+              <path fill="#FF9800" d="M11 11H37V37H11z"></path>
+              <path fill="#FF9800" d="M11.272 11.272H36.728V36.728H11.272z" transform="rotate(-45.001 24 24)">
+              </path>
+              <path fill="#FFEB3B"d="M13,24c0,6.077,4.923,11,11,11c6.076,0,11-4.923,11-11s-4.924-11-11-11C17.923,13,13,17.923,13,24"></path>
+              </svg>
+              <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+              d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
+              clip-rule="evenodd" />
+              </svg>
+          </div>
+        </label>
+    </div> -->
+  <div class="d-flex justify-content-left align-items-center">
+    <p><b>Math Solver</b></p>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger text-center" onclick="Function()">
+        Function
+      </button>
+      <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item" id="Polynomial" href="#">Polynomial</a>
+        </li>
+        <li><a class="dropdown-item" id="Pythagorean" href="#">Pythagorean triples</a></li>
+        <li><a class="dropdown-item" href="#">Logarithm</a></li>
+        <li><a class="dropdown-item" href="#">Equation of Indices</a></li>
+        <li><a class="dropdown-item" href="#">Greatest common divisor and Least common multiple</a></li>
+      </ul>
+    </div>
+  </div>
+  <br />
+  <!-- Output -->
+  <div class="text-center justify-content-center align-items-center">
+    <form action="">
+      <div class="mb-3 row g-2 align-items-center justify-content-center" id="output">
+        <div class="col-auto">
+          <label for="" class="col-form-label">Output : </label>
+        </div>
+        <div class="col-auto">
+          <input type="text" name="" class="form-control" id="out" placeholder=" Example y , z " />
+        </div>
+      </div>
+  </div>
+  <!-- Input Polynomial -->
+  <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-a">
+    <div class="col-auto">
+      <label for="" class="col-form-label">Input a : </label>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="" class="form-control" id="in-a" placeholder=" Example a = 5" />
+    </div>
+  </div>
+  <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-b">
+    <div class="col-auto">
+      <label for="" class="col-form-label">Input b : </label>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="" class="form-control" id="in-b" placeholder=" Example b = 2" />
+    </div>
+  </div>
+  <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-c">
+    <div class="col-auto">
+      <label for="" class="col-form-label">Input c : </label>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="" class="form-control" id="in-c" placeholder=" Example c = 4" />
+    </div>
+  </div>
+  <!-- Formula Polynomial -->
+  <div class="mb-3 row g-2 align-items-center justify-content-center" id="formula">
+    <div class="col-auto">
+      <label for="" class="col-form-label">Formula : </label>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="" class="form-control" id="for-poly" placeholder=" Example 6x^2+3x+4=0" />
+    </div>
+  </div>
+  <div class="mb-3 row g-1 align-items-center justify-content-center" id="formula">
+    <button class="btn btn-primary col-auto" id="submit" type="submit" onclick="Polynomial()">Submit</button>
+  </div>
+  </form>
+  </div>
+  <!-- Input py -->
+  <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-pe1">
+    <div class="col-auto">
+      <label for="" class="col-form-label">Input : </label>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="" class="form-control" id="in-py1" placeholder=" Example a = 5" />
+    </div>
+  </div>
+  <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-pe2">
+    <div class="col-auto">
+      <label for="" class="col-form-label">Input : </label>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="" class="form-control" id="in-py2" placeholder=" Example b = 6" />
+    </div>
+  </div>
+  <!-- Formula Py -->
+  <div class="mb-3 row g-2 align-items-center justify-content-center" id="formula2">
+    <div class="col-auto">
+      <label for="" class="col-form-label">Formula : </label>
+    </div>
+    <div class="col-auto">
+      <input type="text" name="" class="form-control" id="for-py" placeholder=" Example a^2 + b^2 = c" />
+    </div>
+  </div>
+  <!-- submit Py -->
+  <div class="mb-3 row g-1 align-items-center justify-content-center" id="formula2">
+    <button class="btn btn-primary col-auto" id="submit2" type="submit" onclick="Pythagorean()">Submit</button>
+  </div>
+  </form>
+  </div>
+  <div class="toast-container top-0 start-0 p-4">
+    <div class="toast text-bg-success border-0" id="Alert">
+      <div class="d-flex">
+        <div class="toast-body">
+          <strong>Success!</strong>
+          This is a success toast.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p id="result"></p>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="app.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+</body>
+
+</html>

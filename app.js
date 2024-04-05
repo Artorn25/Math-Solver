@@ -170,6 +170,7 @@ function Pythagorean() {
     alert("Error length of output > 1")
   }
 }
+
 function Logarithm() { }
 function Equation() { }
 function GreatestandLeastest() { }

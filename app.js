@@ -12,6 +12,8 @@ function Function() {
   location.reload();
 }
 
+
+// เช็คค่าตัวเลขที่กำหนดในตัวแปร
 function check_input(str) {
   const matches = str.match(/\d+(\.\d+)?/);
   if (matches) {
@@ -20,6 +22,7 @@ function check_input(str) {
     return null;
   }
 }
+
 // ลบช่องว่างและทำให้ติดกัน
 function replacedspace(text) {
   var space = text.split(" "),
@@ -44,10 +47,10 @@ $(document).ready(function () {
     $("#formula").show()
     document.getElementById("for").placeholder = " Example 6x^2+3x+4=0";
     $("#submit").show()
-    document.getElementById("submit").onclick = function() { Polynomial()}
+    document.getElementById("submit").onclick = function () { Polynomial() }
     $("#input-pe1").hide()
     $("#input-pe2").hide()
-    });
+  });
   $("#Pythagorean").click(function () {
     $("#output").show()
     $("#input-pe1").show()
@@ -56,9 +59,9 @@ $(document).ready(function () {
     $("#input-b").hide()
     $("#input-c").hide()
     $("#submit").show()
-    document.getElementById("submit").onclick = function() { Pythagorean()}
+    document.getElementById("submit").onclick = function () { Pythagorean() }
     $("#formula").show()
-    document.getElementById("for").placeholder = " Example a^2 + b^2 = c";
+    document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
   });
 });
 
@@ -70,7 +73,7 @@ function Polynomial() {
     f = document.getElementById('for').value;
   const notification = document.getElementById('submit'),
     Alert = document.getElementById('Alert');
-  if (o.length < 2) { // Quadratic formula
+  if (o.length < 2 && o.length > 0) { // Quadratic formula
     var out = o[0], i_a = a[0], i_b = b[0], i_c = c[0];
     const a_numbers = check_input(a), b_numbers = check_input(b), c_numbers = check_input(c);
     if (typeof a_numbers === "number" && typeof b_numbers === "number" && typeof c_numbers === "number") {
@@ -111,57 +114,82 @@ function Polynomial() {
                       }
                     }
                     else if (isNaN(result2)) result2 = "Can't define value";
-                    
                     notification.addEventListener('click', () => {
                       const noti = new bootstrap.Toast(Alert);
                       noti.show();
                     });
                     document.getElementById('result').innerHTML = varia + " = " + result + " , " + result2;
-                  }
-                }
-              }
+                  } else { alert("ค่าที่ใส่ไม่ถูกต้อง c") }
+                } else { alert("ตัวแปรที่ใส่ผิดไม่ตรงกับ output") }
+              } else { alert("ค่าที่ใส่ไม่ถูกต้อง b") }
             }
-          }
-        } else { alert("Pow in formula not correct") }
+          } else { alert("เลขยกกำลังที่กำหนดผิด ต้องเป็น 2") }
+        } else { alert("ค่าที่ใส่ไม่ถูกต้อง a") }
       } else { alert("Formula not correct") }
-    } else { alert("") }
+    } else { alert("ค่าของตัวแปรไม่ใช้ตัวเลข") }
   } else { alert("Error length of output > 1") }
 }
 
 function Pythagorean() {
   let o = document.getElementById('out').value,
     i = document.getElementById('in-py1').value,
-    i2 = document.getElementById('in-py2').value,
+    i_2 = document.getElementById('in-py2').value,
     fo = document.getElementById('for').value;
   const notification = document.getElementById('submit'),
-      Alert = document.getElementById('Alert');
-  if (o.length < 2) {
+    Alert = document.getElementById('Alert');
+  if (o.length < 2 && o.length > 0) {
+    var out = o[0], a = i[0], b = i_2[0]
     const numbers = check_input(i),
-      numbers2 = check_input(i2);
-    if (typeof numbers === "number") {
-      if (typeof numbers2 === "number") {
-        let f = replacedspace(fo),
-          find = f.indexOf("+");
-        if (find == f.indexOf("+")) {
-          let front = f.substring(0, f.indexOf("+")),
-            back = f.substring(f.indexOf("+") + 1, f.indexOf("=")),
-            result = f.substring(f.indexOf("=") + 1, f.length),
-            replacefront = front[2],
-            replaceback = back[2];
-          if (replacefront == 2 && replaceback == 2) {
+      numbers2 = check_input(i_2);
+    if (typeof numbers === "number" && typeof numbers2 === "number") {
+      let f = replacedspace(fo);
+      const index_plus = f.indexOf('+'),
+        index_equal = f.indexOf('=');
+      // find = f.indexOf("+");
+      if (index_equal > index_plus) {
+        let front = f.substring(0, f.indexOf("+")),
+          back = f.substring(f.indexOf("+") + 1, f.indexOf("=")),
+          result = f.substring(f.indexOf("=") + 1, f.length),
+          replacefront = front[2],
+          replaceback = back[2],
+          replaceresult = result[2];
+        // alert(replaceback)
+        if (replacefront == 2 && replaceback == 2 && replaceresult == 2) {
+          if (out == result[0] && a == front[0] && b == back[0]) {
+            // alert(a + b + out)
             let result2 = Math.pow(numbers, replacefront) + Math.pow(numbers2, replaceback)
             // alert(result + " = " + result2)
             notification.addEventListener('click', () => {
               noti = new bootstrap.Toast(Alert);
               noti.show();
             });
-            document.getElementById('result').innerHTML = result + " = " + result2;
+            document.getElementById('result').innerHTML = out + "^2 = " + result2 + " , " + out + " = " + Math.sqrt(result2);
           }
-          else {
-            alert("error")
+        } else {
+          alert("เลขยกกำลังผิด ต้องเป็น 2")
+        }
+      } else if (index_equal < index_plus) {
+        let result = f.substring(0, f.indexOf("=")),
+          front = f.substring(f.indexOf("=") + 1, f.indexOf("+")),
+          back = f.substring(f.indexOf("+") + 1, f.length),
+          replacefront = front[2],
+          replaceback = back[2],
+          replaceresult = result[2];
+        if (replacefront == 2 && replaceback == 2 && replaceresult == 2) {
+          if (out == result[0] && a == front[0] && b == back[0]) {
+            let result2 = Math.pow(numbers, replacefront) + Math.pow(numbers2, replaceback)
+            // alert(result + " = " + result2)
+            notification.addEventListener('click', () => {
+              noti = new bootstrap.Toast(Alert);
+              noti.show();
+            });
+            document.getElementById('result').innerHTML = out + "^2 = " + result2 + " , " + out + " = " + Math.sqrt(result2);
           }
         }
+      } else {// สมการไม่ถูกต้อง
       }
+    } else {
+      // ค่าของตัวแปรไม่ใช่ตัวเลข
     }
 
   } else {

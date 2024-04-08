@@ -45,7 +45,7 @@
   </div>
   <div class="d-flex justify-content-center align-items-center">
     <div class="btn-group">
-      <button type="button" class="btn btn-danger text-center" onclick="Function()">
+      <button type="button" class="btn btn-danger text-center" id="Function" onclick="Function()">
         Function
       </button>
       <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
@@ -53,20 +53,37 @@
         <span class="visually-hidden">Toggle Dropdown</span>
       </button>
       <ul class="dropdown-menu">
-        <li>
-          <a class="dropdown-item" id="Polynomial" href="#">Polynomial</a>
-        </li>
+        <li><a class="dropdown-item" id="Polynomial" href="#">Polynomial</a></li>
         <li><a class="dropdown-item" id="Pythagorean" href="#">Pythagorean triples</a></li>
-        <li><a class="dropdown-item" href="#">Logarithm</a></li>
-        <li><a class="dropdown-item" href="#">Equation of Indices</a></li>
-        <li><a class="dropdown-item" href="#">Greatest common divisor and Least common multiple</a></li>
+        <li><a class="dropdown-item" id="Logarithm" href="#">Logarithm</a></li>
       </ul>
     </div>
   </div>
   <br />
-  <!-- Output -->
   <div class="text-center justify-content-center align-items-center">
     <form action="">
+      <!-- List formula Polynomial -->
+      <div class="mb-3 row g-1 align-items-center justify-content-center" id="list">
+        <div class="col-auto">
+          <label for="" class="col-form-label" id="list-name"></label>
+          <select id="list-poly">
+            <option value="Monomial">Monomial formula</option>
+            <option value="Binomial">Binomial formula</option>
+            <option value="Quadratic">Quadratic formula</option>
+            <option value="Cubic">Cubic formula</option>
+          </select>
+          <select id="list-loga">
+            <option value="General Logarithm">General Logarithm </option>
+            <option value="Logarithm of Product">Logarithm of Product </option>
+            <option value="Logarithm of Division">Logarithm of Division </option>
+            <option value="Logarithm of Power">Logarithm of Power </option>
+            <option value="Logarithm of Square Root">Logarithm of Square Root </option>
+            <option value="Natural Logarithm">Natural Logarithm </option>
+            <option value="Base 10 Logarithm">Base 10 Logarithm </option>
+          </select>
+        </div>
+      </div>
+      <!-- Output -->
       <div class="mb-3 row g-2 align-items-center justify-content-center" id="output">
         <div class="col-auto">
           <label for="" class="col-form-label">Output : </label>
@@ -76,46 +93,29 @@
         </div>
       </div>
   </div>
-  <!-- Input Polynomial -->
+  <!-- Input -->
   <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-a">
     <div class="col-auto">
-      <label for="" class="col-form-label">Input a : </label>
+      <label for="" class="col-form-label" id="input-de-1">Input : </label>
     </div>
     <div class="col-auto">
-      <input type="text" name="" class="form-control" id="in-a" placeholder=" Example a = 5" />
+      <input type="text" name="" class="form-control" id="input-define-a" placeholder=" Example a = 5" />
     </div>
   </div>
   <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-b">
     <div class="col-auto">
-      <label for="" class="col-form-label">Input b : </label>
+      <label for="" class="col-form-label" id="input-de-2">Input : </label>
     </div>
     <div class="col-auto">
-      <input type="text" name="" class="form-control" id="in-b" placeholder=" Example b = 2" />
+      <input type="text" name="" class="form-control" id="input-define-b" placeholder=" Example b = 2" />
     </div>
   </div>
   <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-c">
     <div class="col-auto">
-      <label for="" class="col-form-label">Input c : </label>
+      <label for="" class="col-form-label" id="input-de-3">Input : </label>
     </div>
     <div class="col-auto">
-      <input type="text" name="" class="form-control" id="in-c" placeholder=" Example c = 4" />
-    </div>
-  </div>
-  <!-- Input py -->
-  <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-pe1">
-    <div class="col-auto">
-      <label for="" class="col-form-label">Input : </label>
-    </div>
-    <div class="col-auto">
-      <input type="text" name="" class="form-control" id="in-py1" placeholder=" Example a = 5" />
-    </div>
-  </div>
-  <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-pe2">
-    <div class="col-auto">
-      <label for="" class="col-form-label">Input : </label>
-    </div>
-    <div class="col-auto">
-      <input type="text" name="" class="form-control" id="in-py2" placeholder=" Example b = 6" />
+      <input type="text" name="" class="form-control" id="input-define-b" placeholder=" Example c = 4" />
     </div>
   </div>
   <!-- Formula -->
@@ -130,7 +130,7 @@
   <div class="mb-3 row g-1 align-items-center justify-content-center" id="formula">
     <button class="btn btn-primary col-auto" id="submit" type="submit">Submit</button>
   </div>
-    </form>
+  </form>
   </div>
   <div class="toast-container top-0 start-0 p-4">
     <div class="toast text-bg-success border-0" id="Alert">
@@ -148,7 +148,6 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="app.js"></script>
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
 </body>
 
 </html>

@@ -15,7 +15,8 @@ function Function() {
 
 // เช็คค่าตัวเลขที่กำหนดในตัวแปร
 function check_input(str) {
-  const matches = str.match(/\d+(\.\d+)?/);
+  // const matches = str.match(/\d+(\.\d+)?/);
+  const matches = str.match(/-?\d+(\.\d+)?/);
   if (matches) {
     return parseFloat(matches[0]);
   } else {
@@ -129,7 +130,7 @@ function Change_Poly() {
     $("#input-c").show()
     document.getElementById("input-de-3").innerHTML = "Input c :";
     $("#formula").show()
-    document.getElementById("for").placeholder = " Example 6x^2+3x+4=0";
+    document.getElementById("for").placeholder = " Example ax^2+bx+c=0";
     $("#submit").show()
     document.getElementById("submit").onclick = function () { Polynomial() }
     $("#input-pe1").hide()
@@ -246,10 +247,6 @@ function Polynomial() {
                       }
                     }
                     else if (isNaN(result2)) result2 = "Can't define value";
-                    notification.addEventListener('click', () => {
-                      const noti = new bootstrap.Toast(Alert);
-                      noti.show();
-                    });
                     document.getElementById('result').innerHTML = varia + " = " + result + " , " + result2;
                   } else { alert("ค่าที่ใส่ไม่ถูกต้อง c") }
                 } else { alert("ตัวแปรที่ใส่ผิดไม่ตรงกับ output") }
@@ -260,6 +257,15 @@ function Polynomial() {
       } else { alert("Formula not correct") }
     } else { alert("ค่าของตัวแปรไม่ใช้ตัวเลข") }
   } else { alert("Error length of output > 1") }
+  o = document.getElementById('out').value = '',
+  a = document.getElementById('input-define-a').value ='',
+  b = document.getElementById('input-define-b').value ='',
+  c = document.getElementById('input-define-c').value ='',
+  for_pytha = document.getElementById('for').value = '';
+  notification.addEventListener('click', () => {
+    const noti = new bootstrap.Toast(Alert);
+    noti.show();
+  });
 }
 
 function Pythagorean() {
@@ -287,10 +293,10 @@ function Pythagorean() {
         if (replacefront == 2 && replaceback == 2 && replaceresult == 2) {
           if (out == result[0] && a == front[0] && b == back[0]) {
             let result2 = Math.pow(base_number, replacefront) + Math.pow(number, replaceback)
-            notification.addEventListener('click', () => {
-              noti = new bootstrap.Toast(Alert);
-              noti.show();
-            });
+            // notification.addEventListener('click', () => {
+            //   noti = new bootstrap.Toast(Alert);
+            //   noti.show();
+            // });
             document.getElementById('result').innerHTML = out + "^2 = " + result2 + " , " + out + " = " + Math.sqrt(result2).toFixed(4);
           }
         } else {
@@ -306,10 +312,10 @@ function Pythagorean() {
         if (replacefront == 2 && replaceback == 2 && replaceresult == 2) {
           if (out == result[0] && a == front[0] && b == back[0]) {
             let result2 = Math.pow(base_number, replacefront) + Math.pow(number, replaceback)
-            notification.addEventListener('click', () => {
-              noti = new bootstrap.Toast(Alert);
-              noti.show();
-            });
+            // notification.addEventListener('click', () => {
+            //   noti = new bootstrap.Toast(Alert);
+            //   noti.show();
+            // });
             document.getElementById('result').innerHTML = out + "^2 = " + result2 + " , " + out + " = " + Math.sqrt(result2).toFixed(4);
           }
         }
@@ -325,6 +331,10 @@ function Pythagorean() {
   i = document.getElementById('input-define-a').value = '',
   i_2 = document.getElementById('input-define-b').value = '',
   f = document.getElementById('for').value = '';
+  notification.addEventListener('click', () => {
+    noti = new bootstrap.Toast(Alert);
+    noti.show();
+  });
 }
 
 function Logarithm() {

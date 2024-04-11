@@ -1,3 +1,4 @@
+
 function loadingscreen() {
   const loader = document.querySelector(".spinner-box");
   loader.classList.add("spinner--hidden");
@@ -31,14 +32,14 @@ function replacedspace(text) {
 }
 
 $(document).ready(function () {
-  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit").hide()
+  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #select").hide()
   $("#Polynomial").click(function () {
     document.getElementById("result").innerHTML = ""
     document.getElementById("Function").innerHTML = "Function Polynomial";
     document.getElementById("list-name").innerHTML = "Type Polynomial :"
-    $("#list, #list-poly, #output, #input-a, #formula, #submit").show()
+    $("#list, #list-poly, #output, #input-a, #formula, #submit, #select").show()
     $("#list-loga, #input-b, #input-c, #click-1, #click-2, #click-3").hide()
-    document.getElementById("for").placeholder = " Example 6x^2=0";
+    document.getElementById("for").placeholder = " Example ax+b=y";
     document.getElementById("submit").onclick = function () { Polynomial() }
     document.getElementById("list-poly").onclick = function () { Change_Poly() }
   });
@@ -67,16 +68,9 @@ $(document).ready(function () {
 function Change_Poly() {
   document.getElementById("result").innerHTML = ""
   var choice = document.getElementById("list-poly").value;
-  if (choice === "Monomial") {
-    $("#output, #input-a, #formula, #submit").show()
-    // $("#input-a").show()
-    // $("#formula").show()
-    document.getElementById("for").placeholder = " Example 6x^2=0";
-    // $("#submit").show()
-    document.getElementById("submit").onclick = function () { Polynomial() }
-  } else if (choice === "Binomial") {
-    $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
-    document.getElementById("for").placeholder = " Example 6x^2+3x+4=0";
+  if (choice === "Linear") {
+    $("#output, #input-a, #input-b, #formula, #submit").show()
+    document.getElementById("for").placeholder = " Example ax+b=0";
     document.getElementById("submit").onclick = function () { Polynomial() }
   } else if (choice === "Quadratic") {
     $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
@@ -86,8 +80,14 @@ function Change_Poly() {
     document.getElementById("for").placeholder = " Example ax^2+bx+c=0";
     document.getElementById("submit").onclick = function () { Polynomial() }
   } else if (choice === "Cubic") {
-    $("#output, #input-a, #formula, #submit").show()
-    document.getElementById("for").placeholder = " Example 6x^2+3x+4=0";
+    // 
+    $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
+    document.getElementById("for").placeholder = " Example ax^3+bx^2+cx+d=0";
+    document.getElementById("submit").onclick = function () { Polynomial() }
+  } else if (choice === "Quartic") {
+    // 
+    $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
+    document.getElementById("for").placeholder = " Example ax^4+bx^3+cx^2+dx+e=0";
     document.getElementById("submit").onclick = function () { Polynomial() }
   }
 }
@@ -140,56 +140,67 @@ function Polynomial() {
     for_pytha = document.getElementById('for').value;
   const notification = document.getElementById('submit'),
     Alert = document.getElementById('Alert');
-  if (o.length < 2 && o.length > 0) { // Quadratic formula
-    var out = o[0], i_a = a[0], i_b = b[0], i_c = c[0];
-    const a_numbers = check_input(a), b_numbers = check_input(b), c_numbers = check_input(c);
-    if (typeof a_numbers === "number" && typeof b_numbers === "number" && typeof c_numbers === "number") {
-      let for_poly = replacedspace(for_pytha),
-        find = for_poly.indexOf("+"),
-        equal = for_poly.indexOf("=") + 1; // 0
-      if (find === for_poly.indexOf("+") && equal === for_poly.indexOf("=") + 1) {
-        let front = for_poly.substring(0, for_poly.indexOf("+")),
-          back = for_poly.substring(for_poly.indexOf("+") + 1, for_poly.indexOf("=")),
-          backer = back.indexOf("+"),
-          after_front = front[front.indexOf("^") + 1];
-        after_front = parseInt(after_front); // 2 ที่ fixed
-        let pre_front = front.substring(0, front.indexOf('^') - 1); // ตัวเลขตัวเเรก _x^2
-        pre_front = parseFloat(pre_front);
-        if (pre_front === a_numbers) {
-          i_a = a_numbers; // a
-          if (after_front === 2) {
-            if (backer === back.indexOf("+")) {
-              let pre_back = back.substring(0, back.indexOf("+") - 1), // ตัวเลขตัวกลาง _x
-                cen_back = back.substring(back.indexOf("+") - 1, back.indexOf("+")), // ตัวแปรตัวเลข _^2
-                cen2_back = back.substring(back.indexOf("+") - 1, back.indexOf("+")); // ตัวแปรหลังตัวเลขที่ 2 
-              pre_back = parseFloat(pre_back);
-              if (pre_back === b_numbers) {
-                i_b = b_numbers // b
-                if (cen_back === out && cen2_back === out) {
-                  varia = out // output ที่ใส่
-                  let after_back = back.substring(back.indexOf("+") + 1, back.length); // ตัวเลขตัวท้าย + _
-                  after_back = parseFloat(after_back);
-                  if (after_back === c_numbers) {
-                    i_c = c_numbers // c
-                    let result = (-i_b + Math.sqrt((i_b ** 2) - 4 * i_a * i_c)) / (2 * i_a),
-                      result2 = (-i_b - Math.sqrt((i_b ** 2) - 4 * i_a * i_c)) / (2 * i_a);
-                    if (isNaN(result)) {
-                      result = "Can't define value";
-                      if (isNaN(result2)) {
-                        result2 = "Can't define value";
-                      }
-                    }
-                    else if (isNaN(result2)) result2 = "Can't define value";
-                    document.getElementById('result').innerHTML = varia + " = " + result + " , " + result2;
-                  } else { alert("ค่าที่ใส่ไม่ถูกต้อง c") }
-                } else { alert("ตัวแปรที่ใส่ผิดไม่ตรงกับ output") }
-              } else { alert("ค่าที่ใส่ไม่ถูกต้อง b") }
-            }
-          } else { alert("เลขยกกำลังที่กำหนดผิด ต้องเป็น 2") }
-        } else { alert("ค่าที่ใส่ไม่ถูกต้อง a") }
-      } else { alert("Formula not correct") }
-    } else { alert("ค่าของตัวแปรไม่ใช้ตัวเลข") }
-  } else { alert("Error length of output > 1") }
+  if (choice === "Linear") { 
+    if (o.length < 2 && o.length > 0){
+      var out = o[0], i_a = a[0], i_b = b[0];
+      const a_numbers = check_input(a), b_numbers = check_input(b);
+      if (typeof a_numbers === "number" && typeof b_numbers === "number"){
+
+      }
+    }
+  }else if (choice === "Quadratic") {
+    if (o.length < 2 && o.length > 0) { // Quadratic formula
+      var out = o[0], i_a = a[0], i_b = b[0], i_c = c[0];
+      const a_numbers = check_input(a), b_numbers = check_input(b), c_numbers = check_input(c);
+      if (typeof a_numbers === "number" && typeof b_numbers === "number" && typeof c_numbers === "number") {
+        let for_poly = replacedspace(for_pytha),
+          find = for_poly.indexOf("+"),
+          equal = for_poly.indexOf("=") + 1; // 0
+        if (find === for_poly.indexOf("+") && equal === for_poly.indexOf("=") + 1) {
+          let front = for_poly.substring(0, for_poly.indexOf("+")),
+            back = for_poly.substring(for_poly.indexOf("+") + 1, for_poly.indexOf("=")),
+            backer = back.indexOf("+"),
+            after_front = front[front.indexOf("^") + 1];
+          after_front = parseInt(after_front); // 2 ที่ fixed
+          let pre_front = front.substring(0, front.indexOf('^') - 1); // ตัวเลขตัวเเรก _x^2
+          pre_front = parseFloat(pre_front);
+          if (pre_front === a_numbers) {
+            i_a = a_numbers; // a
+            if (after_front === 2) {
+              if (backer === back.indexOf("+")) {
+                let pre_back = back.substring(0, back.indexOf("+") - 1), // ตัวเลขตัวกลาง _x
+                  cen_back = back.substring(back.indexOf("+") - 1, back.indexOf("+")), // ตัวแปรตัวเลข _^2
+                  cen2_back = back.substring(back.indexOf("+") - 1, back.indexOf("+")); // ตัวแปรหลังตัวเลขที่ 2 
+                pre_back = parseFloat(pre_back);
+                if (pre_back === b_numbers) {
+                  i_b = b_numbers // b
+                  if (cen_back === out && cen2_back === out) {
+                    varia = out // output ที่ใส่
+                    let after_back = back.substring(back.indexOf("+") + 1, back.length); // ตัวเลขตัวท้าย + _
+                    after_back = parseFloat(after_back);
+                    if (after_back === c_numbers) {
+                      i_c = c_numbers // c
+                      let result = (-i_b + Math.sqrt((i_b ** 2) - 4 * i_a * i_c)) / (2 * i_a),
+                        result2 = (-i_b - Math.sqrt((i_b ** 2) - 4 * i_a * i_c)) / (2 * i_a);
+                      if (isNaN(result)) {
+                        result = "Can't define value";
+                        if (isNaN(result2)) result2 = "Can't define value";
+                      } else if (isNaN(result2)) { result2 = "Can't define value"; }
+                      document.getElementById('result').innerHTML = varia + " = " + result + " , " + result2;
+                    } else { alert("ค่าที่ใส่ไม่ถูกต้อง c") }
+                  } else { alert("ตัวแปรที่ใส่ผิดไม่ตรงกับ output") }
+                } else { alert("ค่าที่ใส่ไม่ถูกต้อง b") }
+              }
+            } else { alert("เลขยกกำลังที่กำหนดผิด ต้องเป็น 2") }
+          } else { alert("ค่าที่ใส่ไม่ถูกต้อง a") }
+        } else { alert("Formula not correct") }
+      } else { alert("ค่าของตัวแปรไม่ใช้ตัวเลข") }
+    } else { alert("Error length of output > 1") }
+  } else if (choice === "Cubic") {
+
+  } else if (choice === "Quartic") {
+
+  }
   ['out', 'input-define-a', 'input-define-b', 'input-define-c', 'for'].forEach(id => document.getElementById(id).value = '');
   notification.addEventListener('click', () => {
     const noti = new bootstrap.Toast(Alert);
@@ -269,6 +280,10 @@ function Logarithm() {
         number = check_input(n);
       if (typeof base_number === "number" && typeof number === "number") {
         let result = Math.log(number) / Math.log(base_number)
+        if (isNaN(result)) {
+          result = "Can't define value";
+          if (isNaN(result2)) result2 = "Can't define value";
+        } else if (isNaN(result2)) { result2 = "Can't define value"; }
         document.getElementById('result').innerHTML = "log<sub>" + base + "</sub>(" + num + ") = log<sub>" + base_number + "</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
@@ -287,33 +302,49 @@ function Logarithm() {
       const number = check_input(n);
       if (typeof number === "number") {
         let result = Math.log(number / number);
+        if (isNaN(result)) {
+          result = "Can't define value";
+          if (isNaN(result2)) result2 = "Can't define value";
+        } else if (isNaN(result2)) { result2 = "Can't define value"; }
         document.getElementById('result').innerHTML = "log(" + num + "/" + num + ") = log(" + number + "/" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
-  }else if (choice === "Logarithm of Power") {
+  } else if (choice === "Logarithm of Power") {
     if (o.length < 2 && o.length > 0) {
       var out = o[0], num = n[0];
       const number = check_input(n);
       if (typeof number === "number") {
         let result = number * Math.log(number);
+        if (isNaN(result)) {
+          result = "Can't define value";
+          if (isNaN(result2)) result2 = "Can't define value";
+        } else if (isNaN(result2)) { result2 = "Can't define value"; }
         document.getElementById('result').innerHTML = "log(" + num + "^" + num + ") = log(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
-  }else if (choice === "Logarithm of Square Root") {
+  } else if (choice === "Logarithm of Square Root") {
     if (o.length < 2 && o.length > 0) {
       var out = o[0], num = n[0];
       const number = check_input(n);
       if (typeof number === "number") {
         let result = 0.5 * Math.log(number);
+        if (isNaN(result)) {
+          result = "Can't define value";
+          if (isNaN(result2)) result2 = "Can't define value";
+        } else if (isNaN(result2)) { result2 = "Can't define value"; }
         document.getElementById('result').innerHTML = "log(√" + num + ") = log(√" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
-  }else if (choice === "Natural Logarithm") {
+  } else if (choice === "Natural Logarithm") {
     if (o.length < 2 && o.length > 0) {
       var out = o[0], num = n[0];
       const number = check_input(n);
       if (typeof number === "number") {
         let result = Math.log(number);
+        if (isNaN(result)) {
+          result = "Can't define value";
+          if (isNaN(result2)) result2 = "Can't define value";
+        } else if (isNaN(result2)) { result2 = "Can't define value"; }
         document.getElementById('result').innerHTML = "ln(" + num + "^" + num + ") = ln(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
@@ -324,6 +355,10 @@ function Logarithm() {
       const number = check_input(n);
       if (typeof number === "number") {
         let result = Math.log10(number);
+        if (isNaN(result)) {
+          result = "Can't define value";
+          if (isNaN(result2)) result2 = "Can't define value";
+        } else if (isNaN(result2)) { result2 = "Can't define value"; }
         document.getElementById('result').innerHTML = "log<sub>10</sub>(" + num + ") = log<sub>10</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }

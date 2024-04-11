@@ -131,6 +131,18 @@ label.theme:active .circle {
     animation: spinner-b87k6z 1s infinite linear;
 }
 
+.detail{
+    width:300px; 
+    height:300px; 
+    border-style:solid; 
+    border-color:black; 
+    text-align:center; 
+    border-radius:25px;
+}
+img{
+    height: 125px;
+}
+
 @keyframes spinner-b87k6z {
     to {
         transform: rotate(360deg);

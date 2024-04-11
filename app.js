@@ -12,7 +12,6 @@ function Function() {
   location.reload();
 }
 
-
 // เช็คค่าตัวเลขที่กำหนดในตัวแปร
 function check_input(str) {
   // const matches = str.match(/\d+(\.\d+)?/);
@@ -32,73 +31,36 @@ function replacedspace(text) {
 }
 
 $(document).ready(function () {
-  $("#output").hide()
-  $("#input-a").hide()
-  $("#input-b").hide()
-  $("#input-c").hide()
-  $("#input-pe1").hide()
-  $("#input-pe2").hide()
-  $("#list").hide()
-  $("#formula").hide()
-  $("#submit").hide()
+  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit").hide()
   $("#Polynomial").click(function () {
     document.getElementById("result").innerHTML = ""
     document.getElementById("Function").innerHTML = "Function Polynomial";
-    $("#list").show()
     document.getElementById("list-name").innerHTML = "Type Polynomial :"
-    $("#list-loga").hide()
-    $("#list-poly").show()
-    $("#output").show()
-    $("#input-a").show()
-    $("#input-c").hide()
-    $("#input-b").hide()
-    $("#formula").show()
+    $("#list, #list-poly, #output, #input-a, #formula, #submit").show()
+    $("#list-loga, #input-b, #input-c, #click-1, #click-2, #click-3").hide()
     document.getElementById("for").placeholder = " Example 6x^2=0";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Polynomial() }
     document.getElementById("list-poly").onclick = function () { Change_Poly() }
   });
   $("#Pythagorean").click(function () {
     document.getElementById("result").innerHTML = ""
     document.getElementById("Function").innerHTML = "Function Pythagorean"
-    $("#output").show()
-    $("#input-a").show()
+    $("#output, #input-a, #input-b, #formula, #submit").show()
     document.getElementById("input-de-1").innerHTML = "Input a : "
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = "Input b : "
-    $("#input-c").hide()
-    $("#list").hide()
-    $("#formula").show()
+    $("#input-c, #list, #click-1, #click-2, #click-3").hide()
     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Pythagorean() }
   });
   $("#Logarithm").click(function () {
     document.getElementById("Function").innerHTML = "Function Logarithm"
     document.getElementById("list-name").innerHTML = "Type Logarithm :"
-    $("#list").show()
-    $("#list-poly").hide()
-    $("#list-loga").show()
-    $("#output").show()
-    $("#input-a").show()
+    $("#list, #list-loga, #output, #input-a, #input-b, #submit").show()
+    $("#list-poly, #input-c, #click-1, #click-2, #click-3").hide()
     document.getElementById("input-de-1").innerHTML = "Input Base : ";
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = "Input Number : ";
-    $("#input-c").hide()
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Logarithm() }
     document.getElementById("list-loga").onclick = function () { Change_Loga() }
-  })
-  $("#Equation").click(function () {
-    document.getElementById("reuslt").innerHTML = ""
-    $("#list").hide()
-    document.getElementById("Function").innerHTML = "Function Equation of Indices"
-    $("#output").show()
-    $("#input-a").show()
-    $("#formula").show()
-    document.getElementById("for").placeholder = " Example ";
-    $("#submit").show()
-    document.getElementById("submit").onclick = function () { Equation() }
   })
 });
 
@@ -106,40 +68,26 @@ function Change_Poly() {
   document.getElementById("result").innerHTML = ""
   var choice = document.getElementById("list-poly").value;
   if (choice === "Monomial") {
-    $("#output").show()
-    $("#input-a").show()
-    $("#formula").show()
+    $("#output, #input-a, #formula, #submit").show()
+    // $("#input-a").show()
+    // $("#formula").show()
     document.getElementById("for").placeholder = " Example 6x^2=0";
-    $("#submit").show()
+    // $("#submit").show()
     document.getElementById("submit").onclick = function () { Polynomial() }
   } else if (choice === "Binomial") {
-    $("#output").show()
-    $("#input-a").show()
-    $("#input-b").show()
-    $("#input-c").show()
-    $("#formula").show()
+    $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
     document.getElementById("for").placeholder = " Example 6x^2+3x+4=0";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Polynomial() }
   } else if (choice === "Quadratic") {
-    $("#output").show()
-    $("#input-a").show()
+    $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
     document.getElementById("input-de-1").innerHTML = "Input a :";
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = "Input b :";
-    $("#input-c").show()
     document.getElementById("input-de-3").innerHTML = "Input c :";
-    $("#formula").show()
     document.getElementById("for").placeholder = " Example ax^2+bx+c=0";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Polynomial() }
-    $("#input-pe1").hide()
-    $("#input-pe2").hide()
   } else if (choice === "Cubic") {
-    $("#output").show()
-    $("#formula").show()
+    $("#output, #input-a, #formula, #submit").show()
     document.getElementById("for").placeholder = " Example 6x^2+3x+4=0";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Polynomial() }
   }
 }
@@ -148,54 +96,39 @@ function Change_Loga() {
   document.getElementById("result").innerHTML = ""
   var choice = document.getElementById("list-loga").value;
   if (choice === "General Logarithm") {
-    $("#output").show()
-    $("#input-a").show()
+    $("#output, #input-a, #input-b, #submit").show()
     document.getElementById("input-de-1").innerHTML = " Input Base : ";
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Logarithm of Product") {
-    $("#output").show()
+    $("#output, #input-b, #submit").show()
     $("#input-a").hide()
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Logarithm of Division") {
-    $("#output").show()
+    $("#output, #input-b, #submit").show()
     $("#input-a").hide()
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Logarithm of Power") {
-    $("#output").show()
+    $("#output, #input-b, #submit").show()
     $("#input-a").hide()
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Logarithm of Square Root") {
-    $("#output").show()
+    $("#output, #input-b, #submit").show()
     $("#input-a").hide()
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Natural Logarithm") {
-    $("#output").show()
+    $("#output, #input-b, #submit").show()
     $("#input-a").hide()
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Base 10 Logarithm") {
-    $("#output").show()
+    $("#output, #input-b, #submit").show()
     $("#input-a").hide()
-    $("#input-b").show()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
-    $("#submit").show()
     document.getElementById("submit").onclick = function () { Logarithm() }
   }
 }
@@ -257,11 +190,7 @@ function Polynomial() {
       } else { alert("Formula not correct") }
     } else { alert("ค่าของตัวแปรไม่ใช้ตัวเลข") }
   } else { alert("Error length of output > 1") }
-  o = document.getElementById('out').value = '',
-  a = document.getElementById('input-define-a').value ='',
-  b = document.getElementById('input-define-b').value ='',
-  c = document.getElementById('input-define-c').value ='',
-  for_pytha = document.getElementById('for').value = '';
+  ['out', 'input-define-a', 'input-define-b', 'input-define-c', 'for'].forEach(id => document.getElementById(id).value = '');
   notification.addEventListener('click', () => {
     const noti = new bootstrap.Toast(Alert);
     noti.show();
@@ -293,10 +222,6 @@ function Pythagorean() {
         if (replacefront == 2 && replaceback == 2 && replaceresult == 2) {
           if (out == result[0] && a == front[0] && b == back[0]) {
             let result2 = Math.pow(base_number, replacefront) + Math.pow(number, replaceback)
-            // notification.addEventListener('click', () => {
-            //   noti = new bootstrap.Toast(Alert);
-            //   noti.show();
-            // });
             document.getElementById('result').innerHTML = out + "^2 = " + result2 + " , " + out + " = " + Math.sqrt(result2).toFixed(4);
           }
         } else {
@@ -312,10 +237,6 @@ function Pythagorean() {
         if (replacefront == 2 && replaceback == 2 && replaceresult == 2) {
           if (out == result[0] && a == front[0] && b == back[0]) {
             let result2 = Math.pow(base_number, replacefront) + Math.pow(number, replaceback)
-            // notification.addEventListener('click', () => {
-            //   noti = new bootstrap.Toast(Alert);
-            //   noti.show();
-            // });
             document.getElementById('result').innerHTML = out + "^2 = " + result2 + " , " + out + " = " + Math.sqrt(result2).toFixed(4);
           }
         }
@@ -327,10 +248,7 @@ function Pythagorean() {
   } else {
     alert("Error length of output > 1")
   }
-  o = document.getElementById('out').value = '',
-  i = document.getElementById('input-define-a').value = '',
-  i_2 = document.getElementById('input-define-b').value = '',
-  f = document.getElementById('for').value = '';
+  ['out', 'input-define-a', 'input-define-b', 'for'].forEach(id => document.getElementById(id).value = '');
   notification.addEventListener('click', () => {
     noti = new bootstrap.Toast(Alert);
     noti.show();
@@ -410,9 +328,7 @@ function Logarithm() {
       }
     }
   }
-  document.getElementById('out').value = '',
-  document.getElementById('input-define-a').value = '',
-  document.getElementById('input-define-b').value = '';
+  ['out', 'input-define-a', 'input-define-b'].forEach(id => document.getElementById(id).value = '');
   notification.addEventListener('click', () => {
     noti = new bootstrap.Toast(Alert);
     noti.show();

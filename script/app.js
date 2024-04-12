@@ -18,9 +18,7 @@ function check_input(str) {
   const matches = str.match(/-?\d+(\.\d+)?/);
   if (matches) {
     return parseFloat(matches[0]);
-  } else {
-    return null;
-  }
+  } else { return null; }
 }
 
 // ลบช่องว่างและทำให้ติดกัน
@@ -31,13 +29,13 @@ function replacedspace(text) {
 }
 
 $(document).ready(function () {
-  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #picture-1, #picture-2, #select").hide()
+  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #picture-1, #picture-2, #picture-3, #select").hide()
   $("#Polynomial").click(function () {
     document.getElementById("result").innerHTML = ""
     document.getElementById("Function").innerHTML = "Function Polynomial";
     document.getElementById("list-name").innerHTML = "Type Polynomial :"
     $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #picture-1, #select").show()
-    $("#list-loga, #click-1, #click-2, #click-3, #picture-2").hide()
+    $("#list-loga, #click-1, #click-2, #click-3, #picture-2, #picture-3").hide()
     document.getElementById("input-de-1").innerHTML = "Input x : "
     document.getElementById("input-de-2").innerHTML = "Input b : "
     document.getElementById("input-de-3").innerHTML = "Input y : "
@@ -50,10 +48,10 @@ $(document).ready(function () {
   $("#Pythagorean").click(function () {
     document.getElementById("result").innerHTML = ""
     document.getElementById("Function").innerHTML = "Function Pythagorean"
-    $("#output, #input-a, #input-b, #formula, #submit, #picture-2").show()
+    $("#output, #input-a, #input-b, #formula, #submit, #picture-3").show()
     document.getElementById("input-de-1").innerHTML = "Input a : "
     document.getElementById("input-de-2").innerHTML = "Input b : "
-    $("#input-c, #list, #click-1, #click-2, #click-3, #select,#picture-1").hide()
+    $("#input-c, #list, #click-1, #click-2, #click-3, #select, #picture-1, #picture-2").hide()
     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
     document.getElementById("submit").onclick = function () { Pythagorean() }
   });
@@ -61,7 +59,7 @@ $(document).ready(function () {
     document.getElementById("Function").innerHTML = "Function Logarithm"
     document.getElementById("list-name").innerHTML = "Type Logarithm :"
     $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
-    $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select, #picture-1, #picture-2").hide();
+    $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select, #picture-1, #picture-2, #formula").hide();
     document.getElementById("input-de-1").innerHTML = "Input Base : ";
     document.getElementById("input-de-2").innerHTML = "Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
@@ -71,55 +69,48 @@ $(document).ready(function () {
 
 function Select_Poly() {
   const select = document.querySelector('input[name="point"]:checked').value;
+  $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
+  $("#list-loga, #click-1, #click-2, #click-3").hide()
+  document.getElementById("for").placeholder = " Example ax+b=y";
   switch (select) {
     case 'a':
-      $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
-      $("#list-loga, #click-1, #click-2, #click-3, #select").hide()
       document.getElementById("input-de-1").innerHTML = "Input x : "
       document.getElementById("input-de-2").innerHTML = "Input b : "
       document.getElementById("input-de-3").innerHTML = "Input y : "
       document.getElementById("out").placeholder = " Example a";
-      document.getElementById("for").placeholder = " Example ax+b=y";
-      // document.getElementById("submit").onclick = function () { Polynomial() }
       break;
     case 'x':
-      $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
-      $("#list-loga, #click-1, #click-2, #click-3").hide()
       document.getElementById("input-de-1").innerHTML = "Input a : "
       document.getElementById("input-de-2").innerHTML = "Input b : "
       document.getElementById("input-de-3").innerHTML = "Input y : "
       document.getElementById("out").placeholder = " Example x";
-      document.getElementById("for").placeholder = " Example ax+b=y";
       break;
     case 'b':
-      $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
-      $("#list-loga, #click-1, #click-2, #click-3").hide()
       document.getElementById("input-de-1").innerHTML = "Input a : "
       document.getElementById("input-de-2").innerHTML = "Input x : "
       document.getElementById("input-de-3").innerHTML = "Input y : "
       document.getElementById("out").placeholder = " Example b";
-      document.getElementById("for").placeholder = " Example ax+b=y";
       break;
     case 'y':
-      $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
-      $("#list-loga, #click-1, #click-2, #click-3").hide()
       document.getElementById("input-de-1").innerHTML = "Input a : "
       document.getElementById("input-de-2").innerHTML = "Input x : "
       document.getElementById("input-de-3").innerHTML = "Input b : "
       document.getElementById("out").placeholder = " Example y";
-      document.getElementById("for").placeholder = " Example ax+b=y";
       break;
   }
 }
 function Change_Poly() {
   document.getElementById("result").innerHTML = ""
   var choice = document.getElementById("list-poly").value;
+  $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
   if (choice === "Linear") {
-    $("#output, #input-a, #input-b, #formula, #submit").show()
+    $("#picture-1").show()
+    $("#picture-2, #picture-3").hide()
     document.getElementById("for").placeholder = " Example ax+b=0";
     document.getElementById("submit").onclick = function () { Polynomial() }
   } else if (choice === "Quadratic") {
-    $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
+    $("#picture-2").show()
+    $("#select, #picture-1, #picture-3").hide()
     document.getElementById("input-de-1").innerHTML = "Input a :";
     document.getElementById("input-de-2").innerHTML = "Input b :";
     document.getElementById("input-de-3").innerHTML = "Input c :";
@@ -127,12 +118,12 @@ function Change_Poly() {
     document.getElementById("submit").onclick = function () { Polynomial() }
   } else if (choice === "Cubic") {
     // 
-    $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
+    // $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
     document.getElementById("for").placeholder = " Example ax^3+bx^2+cx+d=0";
     document.getElementById("submit").onclick = function () { Polynomial() }
   } else if (choice === "Quartic") {
     // 
-    $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
+    // $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
     document.getElementById("for").placeholder = " Example ax^4+bx^3+cx^2+dx+e=0";
     document.getElementById("submit").onclick = function () { Polynomial() }
   }
@@ -141,38 +132,38 @@ function Change_Poly() {
 function Change_Loga() {
   document.getElementById("result").innerHTML = ""
   var choice = document.getElementById("list-loga").value;
+  $("#output, #input-a, #input-b, #submit").show()
   if (choice === "General Logarithm") {
-    $("#output, #input-a, #input-b, #submit").show()
     document.getElementById("input-de-1").innerHTML = " Input Base : ";
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Logarithm of Product") {
-    $("#output, #input-b, #submit").show()
+    // $("#output, #input-b, #submit").show()
     $("#input-a").hide()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Logarithm of Division") {
-    $("#output, #input-b, #submit").show()
+    // $("#output, #input-b, #submit").show()
     $("#input-a").hide()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Logarithm of Power") {
-    $("#output, #input-b, #submit").show()
+    // $("#output, #input-b, #submit").show()
     $("#input-a").hide()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Logarithm of Square Root") {
-    $("#output, #input-b, #submit").show()
+    // $("#output, #input-b, #submit").show()
     $("#input-a").hide()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Natural Logarithm") {
-    $("#output, #input-b, #submit").show()
+    // $("#output, #input-b, #submit").show()
     $("#input-a").hide()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
   } else if (choice === "Base 10 Logarithm") {
-    $("#output, #input-b, #submit").show()
+    // $("#output, #input-b, #submit").show()
     $("#input-a").hide()
     document.getElementById("input-de-2").innerHTML = " Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
@@ -387,10 +378,7 @@ function Logarithm() {
         number = check_input(n);
       if (typeof base_number === "number" && typeof number === "number") {
         let result = Math.log(number) / Math.log(base_number)
-        if (isNaN(result)) {
-          result = "Can't define value";
-          if (isNaN(result2)) result2 = "Can't define value";
-        } else if (isNaN(result2)) { result2 = "Can't define value"; }
+        if (isNaN(result)) result = "Can't define value";
         document.getElementById('result').innerHTML = "log<sub>" + base + "</sub>(" + num + ") = log<sub>" + base_number + "</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
@@ -409,10 +397,7 @@ function Logarithm() {
       const number = check_input(n);
       if (typeof number === "number") {
         let result = Math.log(number / number);
-        if (isNaN(result)) {
-          result = "Can't define value";
-          if (isNaN(result2)) result2 = "Can't define value";
-        } else if (isNaN(result2)) { result2 = "Can't define value"; }
+        if (isNaN(result)) result = "Can't define value";
         document.getElementById('result').innerHTML = "log(" + num + "/" + num + ") = log(" + number + "/" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
@@ -422,10 +407,7 @@ function Logarithm() {
       const number = check_input(n);
       if (typeof number === "number") {
         let result = number * Math.log(number);
-        if (isNaN(result)) {
-          result = "Can't define value";
-          if (isNaN(result2)) result2 = "Can't define value";
-        } else if (isNaN(result2)) { result2 = "Can't define value"; }
+        if (isNaN(result)) result = "Can't define value";
         document.getElementById('result').innerHTML = "log(" + num + "^" + num + ") = log(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
@@ -435,10 +417,7 @@ function Logarithm() {
       const number = check_input(n);
       if (typeof number === "number") {
         let result = 0.5 * Math.log(number);
-        if (isNaN(result)) {
-          result = "Can't define value";
-          if (isNaN(result2)) result2 = "Can't define value";
-        } else if (isNaN(result2)) { result2 = "Can't define value"; }
+        if (isNaN(result)) result = "Can't define value";
         document.getElementById('result').innerHTML = "log(√" + num + ") = log(√" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
@@ -448,10 +427,7 @@ function Logarithm() {
       const number = check_input(n);
       if (typeof number === "number") {
         let result = Math.log(number);
-        if (isNaN(result)) {
-          result = "Can't define value";
-          if (isNaN(result2)) result2 = "Can't define value";
-        } else if (isNaN(result2)) { result2 = "Can't define value"; }
+        if (isNaN(result)) result = "Can't define value";
         document.getElementById('result').innerHTML = "ln(" + num + "^" + num + ") = ln(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }
@@ -462,10 +438,7 @@ function Logarithm() {
       const number = check_input(n);
       if (typeof number === "number") {
         let result = Math.log10(number);
-        if (isNaN(result)) {
-          result = "Can't define value";
-          if (isNaN(result2)) result2 = "Can't define value";
-        } else if (isNaN(result2)) { result2 = "Can't define value"; }
+        if (isNaN(result)) result = "Can't define value"; 
         document.getElementById('result').innerHTML = "log<sub>10</sub>(" + num + ") = log<sub>10</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4)
       }
     }

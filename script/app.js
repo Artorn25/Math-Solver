@@ -15,7 +15,6 @@ function Function() {
 
 // เช็คค่าตัวเลขที่กำหนดในตัวแปร
 function check_input(str) {
-  // const matches = str.match(/\d+(\.\d+)?/);
   const matches = str.match(/-?\d+(\.\d+)?/);
   if (matches) {
     return parseFloat(matches[0]);
@@ -32,32 +31,37 @@ function replacedspace(text) {
 }
 
 $(document).ready(function () {
-  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #select").hide()
+  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #picture-1, #picture-2, #select").hide()
   $("#Polynomial").click(function () {
     document.getElementById("result").innerHTML = ""
     document.getElementById("Function").innerHTML = "Function Polynomial";
     document.getElementById("list-name").innerHTML = "Type Polynomial :"
-    $("#list, #list-poly, #output, #input-a, #formula, #submit, #select").show()
-    $("#list-loga, #input-b, #input-c, #click-1, #click-2, #click-3").hide()
+    $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #picture-1, #select").show()
+    $("#list-loga, #click-1, #click-2, #click-3, #picture-2").hide()
+    document.getElementById("input-de-1").innerHTML = "Input x : "
+    document.getElementById("input-de-2").innerHTML = "Input b : "
+    document.getElementById("input-de-3").innerHTML = "Input y : "
+    document.getElementById("out").placeholder = " Example a";
     document.getElementById("for").placeholder = " Example ax+b=y";
-    document.getElementById("submit").onclick = function () { Polynomial() }
+    document.getElementById("select").onclick = function () { Select_Poly() }
     document.getElementById("list-poly").onclick = function () { Change_Poly() }
+    document.getElementById("submit").onclick = function () { Polynomial() }
   });
   $("#Pythagorean").click(function () {
     document.getElementById("result").innerHTML = ""
     document.getElementById("Function").innerHTML = "Function Pythagorean"
-    $("#output, #input-a, #input-b, #formula, #submit").show()
+    $("#output, #input-a, #input-b, #formula, #submit, #picture-2").show()
     document.getElementById("input-de-1").innerHTML = "Input a : "
     document.getElementById("input-de-2").innerHTML = "Input b : "
-    $("#input-c, #list, #click-1, #click-2, #click-3").hide()
+    $("#input-c, #list, #click-1, #click-2, #click-3, #select,#picture-1").hide()
     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
     document.getElementById("submit").onclick = function () { Pythagorean() }
   });
   $("#Logarithm").click(function () {
     document.getElementById("Function").innerHTML = "Function Logarithm"
     document.getElementById("list-name").innerHTML = "Type Logarithm :"
-    $("#list, #list-loga, #output, #input-a, #input-b, #submit").show()
-    $("#list-poly, #input-c, #click-1, #click-2, #click-3").hide()
+    $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
+    $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select, #picture-1, #picture-2").hide();
     document.getElementById("input-de-1").innerHTML = "Input Base : ";
     document.getElementById("input-de-2").innerHTML = "Input Number : ";
     document.getElementById("submit").onclick = function () { Logarithm() }
@@ -65,6 +69,48 @@ $(document).ready(function () {
   })
 });
 
+function Select_Poly() {
+  const select = document.querySelector('input[name="point"]:checked').value;
+  switch (select) {
+    case 'a':
+      $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
+      $("#list-loga, #click-1, #click-2, #click-3, #select").hide()
+      document.getElementById("input-de-1").innerHTML = "Input x : "
+      document.getElementById("input-de-2").innerHTML = "Input b : "
+      document.getElementById("input-de-3").innerHTML = "Input y : "
+      document.getElementById("out").placeholder = " Example a";
+      document.getElementById("for").placeholder = " Example ax+b=y";
+      // document.getElementById("submit").onclick = function () { Polynomial() }
+      break;
+    case 'x':
+      $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
+      $("#list-loga, #click-1, #click-2, #click-3").hide()
+      document.getElementById("input-de-1").innerHTML = "Input a : "
+      document.getElementById("input-de-2").innerHTML = "Input b : "
+      document.getElementById("input-de-3").innerHTML = "Input y : "
+      document.getElementById("out").placeholder = " Example x";
+      document.getElementById("for").placeholder = " Example ax+b=y";
+      break;
+    case 'b':
+      $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
+      $("#list-loga, #click-1, #click-2, #click-3").hide()
+      document.getElementById("input-de-1").innerHTML = "Input a : "
+      document.getElementById("input-de-2").innerHTML = "Input x : "
+      document.getElementById("input-de-3").innerHTML = "Input y : "
+      document.getElementById("out").placeholder = " Example b";
+      document.getElementById("for").placeholder = " Example ax+b=y";
+      break;
+    case 'y':
+      $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select").show()
+      $("#list-loga, #click-1, #click-2, #click-3").hide()
+      document.getElementById("input-de-1").innerHTML = "Input a : "
+      document.getElementById("input-de-2").innerHTML = "Input x : "
+      document.getElementById("input-de-3").innerHTML = "Input b : "
+      document.getElementById("out").placeholder = " Example y";
+      document.getElementById("for").placeholder = " Example ax+b=y";
+      break;
+  }
+}
 function Change_Poly() {
   document.getElementById("result").innerHTML = ""
   var choice = document.getElementById("list-poly").value;
@@ -133,22 +179,83 @@ function Change_Loga() {
   }
 }
 function Polynomial() {
-  let o = document.getElementById('out').value,
+  let choice = document.getElementById("list-poly").value,
+    select = document.querySelector('input[name="point"]:checked').value, 
+    o = document.getElementById('out').value,
     a = document.getElementById('input-define-a').value,
     b = document.getElementById('input-define-b').value,
     c = document.getElementById('input-define-c').value,
     for_pytha = document.getElementById('for').value;
   const notification = document.getElementById('submit'),
     Alert = document.getElementById('Alert');
-  if (choice === "Linear") { 
-    if (o.length < 2 && o.length > 0){
-      var out = o[0], i_a = a[0], i_b = b[0];
-      const a_numbers = check_input(a), b_numbers = check_input(b);
-      if (typeof a_numbers === "number" && typeof b_numbers === "number"){
-
-      }
+  if (choice === "Linear") {
+    switch (select) {
+      case 'a':
+        if (o.length < 2 && o.length > 0) {
+          var out_a = o[0], input_x = a[0], input_b = b[0], input_y = c[0];
+          const x_numbers = check_input(a), b_numbers = check_input(b), y_numbers = check_input(c);
+          if (typeof x_numbers === "number" && typeof b_numbers === "number" && typeof y_numbers == "number") {
+            let for_poly = replacedspace(for_pytha), // ax+b=y
+              for_in = out_a + input_x + "+" + input_b + "=" + input_y; // ax+b=y
+              if (for_poly === for_in){
+                input_x = x_numbers , input_b = b_numbers , input_y = y_numbers;
+                let result = (input_y - input_b)/input_x; // (y-b)/x
+                document.getElementById('result').innerHTML = for_in + " = ("+input_y + "-" + input_b +") / " + input_x 
+                                                              +"<br>"+ out_a + " = " + result;  
+              }
+          }
+        }
+        break;
+      case 'x':
+        if (o.length < 2 && o.length > 0) {
+          var out_x = o[0], input_a = a[0], input_b = b[0], input_y = c[0];
+          const a_numbers = check_input(a), b_numbers = check_input(b), y_numbers = check_input(c);
+          if (typeof a_numbers === "number" && typeof b_numbers === "number" && typeof y_numbers == "number") {
+            let for_poly = replacedspace(for_pytha), // ax+b=y
+              for_in =  input_a + out_x + "+" + input_b + "=" + input_y; // ax+b=y
+              if (for_poly === for_in){
+                input_a = a_numbers , input_b = b_numbers , input_y = y_numbers;
+                let result = (input_y - input_b)/input_a; // (y-b)/x
+                document.getElementById('result').innerHTML = for_in + " = ("+input_y + "-" + input_b +") / " + input_a 
+                                                              +"<br>"+ out_x + " = " + result;  
+              }
+          }
+        }
+        break;
+      case 'b':
+        if (o.length < 2 && o.length > 0) {
+          var out_b = o[0], input_a = a[0], input_x = b[0], input_y = c[0];
+          const a_numbers = check_input(a), x_numbers = check_input(b), y_numbers = check_input(c);
+          if (typeof a_numbers === "number" && typeof x_numbers === "number" && typeof y_numbers == "number") {
+            let for_poly = replacedspace(for_pytha), // ax+b=y
+              for_in =  input_a + input_x + "+" + out_b + "=" + input_y; // ax+b=y
+              if (for_poly === for_in){
+                input_a = a_numbers , input_x = x_numbers , input_y = y_numbers;
+                let result = input_y/(input_a*input_x); // b/ax
+                document.getElementById('result').innerHTML = for_in + " = " + input_y + " / " + input_a + " * " + input_x 
+                                                              +"<br>"+ out_b + " = " + result;  
+              }
+          }
+        }
+        break;
+      case 'y':
+        if (o.length < 2 && o.length > 0) {
+          var out_y = o[0], input_a = a[0], input_x = b[0], input_b = c[0];
+          const a_numbers = check_input(a), x_numbers = check_input(b), b_numbers = check_input(c);
+          if (typeof a_numbers === "number" && typeof x_numbers === "number" && typeof b_numbers == "number") {
+            let for_poly = replacedspace(for_pytha), // ax+b=y
+              for_in =  input_a + input_x + "+" + input_b + "=" + out_y; // ax+b=y
+              if (for_poly === for_in){
+                input_a = a_numbers , input_x = x_numbers , input_b = b_numbers;
+                let result = (input_a*input_x)+input_b; // b/ax
+                document.getElementById('result').innerHTML = for_in + " = " + input_a + " * " + input_x + " + " + input_b 
+                                                              +"<br>"+ out_y + " = " + result;  
+              }
+          }
+        }
+        break;
     }
-  }else if (choice === "Quadratic") {
+  } else if (choice === "Quadratic") {
     if (o.length < 2 && o.length > 0) { // Quadratic formula
       var out = o[0], i_a = a[0], i_b = b[0], i_c = c[0];
       const a_numbers = check_input(a), b_numbers = check_input(b), c_numbers = check_input(c);

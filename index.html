@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" type="x-icon" href="image/MaTH.jpg">
   <title>Math Solver</title>
+  <link rel="stylesheet" href="/style/popup.css" />
   <link rel="stylesheet" href="/style/style.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-    <!-- <script src="math.js" type="text/javascript"></script> -->
+  <!-- <script src="math.js" type="text/javascript"></script> -->
 </head>
 
 <body>
+  
   <div class="spinner-box">
     <div class="spinner"></div>
   </div>
@@ -83,32 +85,32 @@
         </div>
       </div>
       <div class="mb-3 align-items-center justify-content-center">
-        <img src="/image/linear.jpg" alt="" id="picture-1" style ="height: 200px; width: 250px;">
-        <img src="/image/quadratic.jpg" alt="" id="picture-2" style ="height: 200px; width: 350px;">
-        <img src="/image/Pythagorean.png" alt="" id="picture-3" style ="height: 250px; width: 300px;">
+        <img src="/image/linear.jpg" alt="" id="picture-1" style="height: 200px; width: 250px;">
+        <img src="/image/quadratic.jpg" alt="" id="picture-2" style="height: 200px; width: 350px;">
+        <img src="/image/Pythagorean.png" alt="" id="picture-3" style="height: 250px; width: 300px;">
       </div>
-    <div class="mb-3 align-items-center justify-content-center" id="select_poly">
-      <p>Please select your find result:</p>
-        <input type="radio" name="poly" value="a" id="a-1" checked>
-        <label for="">Find a</label>
-        <input type="radio" name="poly" value="x" id="a-2">
-        <label for="">Find x</label>  
-        <input type="radio" name="poly" value="b" id="a-3">
-        <label for="">Find b</label>  
-        <input type="radio" name="poly" value="y" id="a-4">
-        <label for="">Find y</label>
-  </div>
-    <div class="mb-3 align-items-center justify-content-center" id="select_pytha">
-      <p>Please select your find result:</p>
-        <input type="radio" name="pytha" value="a" id="b-1" checked>
-        <label for="">Find a</label>
-        <input type="radio" name="pytha" value="b" id="b-2">
-        <label for="">Find b</label>  
-        <input type="radio" name="pytha" value="c" id="c-3">
-        <label for="">Find c</label>  
-      <!--   <input type="radio" name="poly" value="y" id="a-4">
+      <div class="mb-3 align-items-center justify-content-center" id="select_poly">
+        <p>Please select your find result:</p>
+          <input type="radio" name="poly" value="a" id="a-1" checked>
+          <label for="">Find a</label>
+          <input type="radio" name="poly" value="x" id="a-2">
+          <label for="">Find x</label>
+          <input type="radio" name="poly" value="b" id="a-3">
+          <label for="">Find b</label>
+          <input type="radio" name="poly" value="y" id="a-4">
+          <label for="">Find y</label>
+      </div>
+      <div class="mb-3 align-items-center justify-content-center" id="select_pytha">
+        <p>Please select your find result:</p>
+          <input type="radio" name="pytha" value="a" id="b-1" checked>
+          <label for="">Find a</label>
+          <input type="radio" name="pytha" value="b" id="b-2">
+          <label for="">Find b</label>
+          <input type="radio" name="pytha" value="c" id="c-3">
+          <label for="">Find c</label>
+        <!--   <input type="radio" name="poly" value="y" id="a-4">
         <label for="">Find y</label> -->
-  </div>
+      </div>
       <!-- Output -->
       <div class="mb-3 row g-2 align-items-center justify-content-center" id="output">
         <div class="col-auto">
@@ -174,27 +176,41 @@
     <p id="result"></p>
   </div>
   <!-- details -->
-  <div class="d-flex align-items-center justify-content-evenly" >
+  <div class="d-flex align-items-center justify-content-evenly">
     <div class="detail" id="click-1">
       <a href="">
-        <img src="image/people.png" style ="height: 125px; width: 125px;"> </a><br>
+        <img src="image/people.png" style="height: 125px; width: 125px;"> </a><br>
       <h2>Profile</h2> <br>
       <h3>Let's we introduce your self</h3>
-    </div> 
+    </div>
     <div class="detail" id="click-2">
       <a href="Project_CE322.pdf" target="_blank">
-        <img src="image/project.png" style ="height: 125px; width: 125px;"> </a> <br>
+        <img src="image/project.png" style="height: 125px; width: 125px;"> </a> <br>
       <h2>What project is?</h2> <br>
       <h3>Math solver is a program for education</h3> <br>
     </div>
     <div class="detail" id="click-3">
-      <a href="feedback.html" target="_blank">
-        <img src="image/Text.png" style ="height: 125px; width: 125px;"></a> <br>
+      <a href="#Comment">
+        <img src="image/Text.png" style="height: 125px; width: 125px;"></a> <br>
       <h2>Feedback</h2> <br>
       <h3>Share your feedback with devoloper</h3> <br>
     </div>
   </div>
+  
+  <div style="position: absolute; bottom: 0px;" id="Comment">
+    <div class="input-popup">
+      <input class="input" required type="text" id="username">
+      <label class="label" for="username">Username</label>
+    </div><br>
+    <div class="input-popup">
+      <textarea name="comment" id="comment" cols="50" rows="3"></textarea>
+      <!-- <input class="input" required type="textarea" id="comment"> -->
+      <!-- <label class="label" for="comment">Comment</label>  -->
+    </div>
+  </div>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Up</button>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="/script/app.js" ></script>
+  <script src="/script/app.js"></script>
 </body>
+
 </html>

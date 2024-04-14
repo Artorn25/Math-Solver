@@ -4,43 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="x-icon" href="image/MaTH.jpg">
+  <link rel="shortcut icon" type="x-icon" href="image/MaTH.jpg" />
   <title>Math Solver</title>
   <link rel="stylesheet" href="/style/popup.css" />
   <link rel="stylesheet" href="/style/style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
-  <!-- <script src="math.js" type="text/javascript"></script> -->
 </head>
 
 <body>
-  
+  <!-- Loading -->
   <div class="spinner-box">
     <div class="spinner"></div>
   </div>
 
-  <input type="checkbox" id="toggle" class="swap" />
-  <!-- <div class="display">
-    <label for="toggle" class="theme">
-      <div class="circle">
-              <svg class="sun" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35"
-              viewBox="0 0 48 48">
-              <path fill="#FF9800" d="M11 11H37V37H11z"></path>
-              <path fill="#FF9800" d="M11.272 11.272H36.728V36.728H11.272z" transform="rotate(-45.001 24 24)">
-              </path>
-              <path fill="#FFEB3B"d="M13,24c0,6.077,4.923,11,11,11c6.076,0,11-4.923,11-11s-4.924-11-11-11C17.923,13,13,17.923,13,24"></path>
-              </svg>
-              <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"
-              fill="currentColor">
-              <path fill-rule="evenodd"
-              d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"
-              clip-rule="evenodd" />
-              </svg>
-          </div>
-        </label>
-    </div> -->
   <div class="d-flex justify-content-left align-items-center">
     <p><b>Math Solver</b></p>
   </div>
@@ -54,9 +33,15 @@
         <span class="visually-hidden">Toggle Dropdown</span>
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" id="Polynomial" href="#">Polynomial</a></li>
-        <li><a class="dropdown-item" id="Pythagorean" href="#">Pythagorean triples</a></li>
-        <li><a class="dropdown-item" id="Logarithm" href="#">Logarithm</a></li>
+        <li>
+          <a class="dropdown-item" id="Polynomial" href="#">Polynomial</a>
+        </li>
+        <li>
+          <a class="dropdown-item" id="Pythagorean" href="#">Pythagorean triples</a>
+        </li>
+        <li>
+          <a class="dropdown-item" id="Logarithm" href="#">Logarithm</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -66,53 +51,69 @@
       <!-- List formula Polynomial -->
       <div class="mb-3 row g-1 align-items-center justify-content-center" id="list">
         <div class="col-auto">
-          <label for="" class="col-form-label" id="list-name"></label>
-          <select id="list-poly">
-            <option value="Linear">Linear formula</option>
-            <option value="Quadratic">Quadratic formula</option>
-            <option value="Cubic">Cubic formula</option>
-            <option value="Quartic">Quartic formula</option>
-          </select>
-          <select id="list-loga">
-            <option value="General Logarithm">General Logarithm </option>
-            <option value="Logarithm of Product">Logarithm of Product </option>
-            <option value="Logarithm of Division">Logarithm of Division </option>
-            <option value="Logarithm of Power">Logarithm of Power </option>
-            <option value="Logarithm of Square Root">Logarithm of Square Root </option>
-            <option value="Natural Logarithm">Natural Logarithm </option>
-            <option value="Base 10 Logarithm">Base 10 Logarithm </option>
-          </select>
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <label for="" class="col-form-label" id="list-name"></label>
+            </div>
+            <div class="col-auto">
+              <select class="form-select" id="list-poly">
+                <option value="Linear">Linear formula</option>
+                <option value="Quadratic">Quadratic formula</option>
+              </select>
+              <select class="form-select" id="list-loga">
+                <option value="General Logarithm">General Logarithm</option>
+                <option value="Logarithm of Product">Logarithm of Product</option>
+                <option value="Logarithm of Division">Logarithm of Division</option>
+                <option value="Logarithm of Power">Logarithm of Power</option>
+                <option value="Logarithm of Square Root">Logarithm of Square Root</option>
+                <option value="Natural Logarithm">Natural Logarithm</option>
+                <option value="Base 10 Logarithm">Base 10 Logarithm</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- picture -->
       <div class="mb-3 align-items-center justify-content-center">
-        <img src="/image/linear.jpg" alt="" id="picture-1" style="height: 200px; width: 250px;">
-        <img src="/image/quadratic.jpg" alt="" id="picture-2" style="height: 200px; width: 350px;">
-        <img src="/image/Pythagorean.png" alt="" id="picture-3" style="height: 250px; width: 300px;">
+        <img src="/image/linear.jpg" alt="" id="picture-1" style="height: 200px; width: 250px" />
+        <img src="/image/quadratic.jpg" alt="" id="picture-2" style="height: 200px; width: 350px" />
+        <img src="/image/Pythagorean.png" alt="" id="picture-3" style="height: 250px; width: 300px" />
       </div>
-      <div class="mb-3 align-items-center justify-content-center" id="select_poly">
-        <p>Please select your find result:</p>
-          <input type="radio" name="poly" value="a" id="a-1" checked>
-          <label for="">Find a</label>
-          <input type="radio" name="poly" value="x" id="a-2">
-          <label for="">Find x</label>
-          <input type="radio" name="poly" value="b" id="a-3">
-          <label for="">Find b</label>
-          <input type="radio" name="poly" value="y" id="a-4">
-          <label for="">Find y</label>
+      <p id="select_name">Please select your find result:</p>
+      <div class="d-flex align-items-center justify-content-center" id="select_poly">
+        <div class="form-check me-3" id="select_poly">
+          <input class="form-check-input" type="radio" name="poly" value="a" id="a-1" checked />
+          <label class="form-check-label" for="">Find a</label>
+        </div>
+        <div class="form-check me-3" id="select_poly">
+          <input class="form-check-input" type="radio" name="poly" value="x" id="a-2" />
+          <label class="form-check-label" for="">Find x</label>
+        </div>
+        <div class="form-check me-3" id="select_poly">
+          <input class="form-check-input" type="radio" name="poly" value="b" id="a-3" />
+          <label class="form-check-label" for="">Find b</label>
+        </div>
+        <div class="form-check me-3" id="select_poly">
+          <input class="form-check-input" type="radio" name="poly" value="y" id="a-4" />
+          <label class="form-check-label" for="">Find y</label>
+        </div>
       </div>
-      <div class="mb-3 align-items-center justify-content-center" id="select_pytha">
-        <p>Please select your find result:</p>
-          <input type="radio" name="pytha" value="a" id="b-1" checked>
-          <label for="">Find a</label>
-          <input type="radio" name="pytha" value="b" id="b-2">
-          <label for="">Find b</label>
-          <input type="radio" name="pytha" value="c" id="c-3">
-          <label for="">Find c</label>
-        <!--   <input type="radio" name="poly" value="y" id="a-4">
-        <label for="">Find y</label> -->
+      <div class="d-flex align-items-center justify-content-center" id="select_pytha">
+        <div class="form-check me-3" id="select_pytha">
+          <input class="form-check-input" type="radio" name="pytha" value="a" id="b-1" checked />
+          <label class="form-check-label" for=""> Find a</label>
+        </div>
+        <div class="form-check me-3" id="select_pytha">
+          <input class="form-check-input" type="radio" name="pytha" value="b" id="b-2" />
+          <label class="form-check-label" for="">Find b</label>
+        </div>
+        <div class="form-check me-3" id="select_pytha">
+          <input class="form-check-input" type="radio" name="pytha" value="c" id="c-3" />
+          <label class="form-check-label" for="">Find c</label>
+        </div>
       </div>
       <!-- Output -->
-      <div class="mb-3 row g-2 align-items-center justify-content-center" id="output">
+      <div class="mt-2 mb-3 row g-2 align-items-center justify-content-center" id="output">
         <div class="col-auto">
           <label for="" class="col-form-label">Output : </label>
         </div>
@@ -124,7 +125,7 @@
   <!-- Input -->
   <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-a">
     <div class="col-auto">
-      <label for="" class="col-form-label" id="input-de-1">Input : </label>
+      <label for="" class="col-form-label" id="input-de-1">Input :</label>
     </div>
     <div class="col-auto">
       <input type="text" name="" class="form-control" id="input-define-a" placeholder=" Example a = 5" />
@@ -132,7 +133,7 @@
   </div>
   <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-b">
     <div class="col-auto">
-      <label for="" class="col-form-label" id="input-de-2">Input : </label>
+      <label for="" class="col-form-label" id="input-de-2">Input :</label>
     </div>
     <div class="col-auto">
       <input type="text" name="" class="form-control" id="input-define-b" placeholder=" Example b = 2" />
@@ -140,7 +141,7 @@
   </div>
   <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-c">
     <div class="col-auto">
-      <label for="" class="col-form-label" id="input-de-3">Input : </label>
+      <label for="" class="col-form-label" id="input-de-3">Input :</label>
     </div>
     <div class="col-auto">
       <input type="text" name="" class="form-control" id="input-define-c" placeholder=" Example c = 4" />
@@ -160,6 +161,7 @@
   </div>
   </form>
   </div>
+  <!-- Status -->
   <div class="toast-container top-0 start-0 p-4">
     <div class="toast text-bg-success border-0" id="Alert">
       <div class="d-flex">
@@ -172,40 +174,47 @@
     </div>
   </div>
   <!-- result -->
-  <div>
+  <div class="mb-3 row g-1 align-items-center justify-content-center text-center">
     <p id="result"></p>
   </div>
   <!-- details -->
   <div class="d-flex align-items-center justify-content-evenly">
     <div class="detail" id="click-1">
       <a href="">
-        <img src="image/people.png" style="height: 125px; width: 125px;"> </a><br>
-      <h2>Profile</h2> <br>
+        <img src="image/people.png" style="height: 125px; width: 125px; margin-top: 10px" /> </a><br />
+      <h2>Profile</h2>
+      <br/>
       <h3>Let's we introduce your self</h3>
     </div>
     <div class="detail" id="click-2">
       <a href="Project_CE322.pdf" target="_blank">
-        <img src="image/project.png" style="height: 125px; width: 125px;"> </a> <br>
-      <h2>What project is?</h2> <br>
-      <h3>Math solver is a program for education</h3> <br>
+        <img src="image/project.png" style="height: 125px; width: 125px; margin-top: 10px" />
+      </a>
+      <br />
+      <h2>What project is?</h2>
+      <br />
+      <h3>Math solver is a program for education</h3>
+      <br />
     </div>
     <div class="detail" id="click-3">
       <a href="#Comment">
-        <img src="image/Text.png" style="height: 125px; width: 125px;"></a> <br>
-      <h2>Feedback</h2> <br>
-      <h3>Share your feedback with devoloper</h3> <br>
+        <img src="image/Text.png" style="height: 125px; width: 125px; margin-top: 10px" /></a>
+      <br />
+      <h2>Feedback</h2>
+      <br />
+      <h3>Share your feedback with devoloper</h3>
+      <br />
     </div>
   </div>
-  
-  <div style="position: absolute; bottom: 0px;" id="Comment">
+  <!-- Comment -->
+  <div style="position: absolute; bottom: 0px" id="comment">
     <div class="input-popup">
-      <input class="input" required type="text" id="username">
+      <input class="input" required type="text" id="username" />
       <label class="label" for="username">Username</label>
-    </div><br>
+    </div>
+    <br />
     <div class="input-popup">
       <textarea name="comment" id="comment" cols="50" rows="3"></textarea>
-      <!-- <input class="input" required type="textarea" id="comment"> -->
-      <!-- <label class="label" for="comment">Comment</label>  -->
     </div>
   </div>
   <button onclick="topFunction()" id="myBtn" title="Go to top">Up</button>

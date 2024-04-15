@@ -25,10 +25,10 @@
   </div>
   <div class="d-flex justify-content-center align-items-center">
     <div class="btn-group">
-      <button type="button" class="btn btn-danger text-center" id="Function" onclick="Function()">
+      <button type="button" class="btn btn-warning text-center" id="Function" onclick="Function()">
         Function
       </button>
-      <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+      <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
         aria-expanded="false">
         <span class="visually-hidden">Toggle Dropdown</span>
       </button>
@@ -161,9 +161,9 @@
   </div>
   </form>
   </div>
-  <!-- Status -->
+  <!-- Status success-->
   <div class="toast-container top-0 start-0 p-4">
-    <div class="toast text-bg-success border-0" id="Alert">
+    <div class="toast text-bg-success border-0" id="alert-success">
       <div class="d-flex">
         <div class="toast-body">
           <strong>Success!</strong>
@@ -173,9 +173,21 @@
       </div>
     </div>
   </div>
+  <!-- status fail -->
+  <div class="toast-container top-0 start-0 p-4">
+    <div class="toast text-bg-danger border-0" id="alert-fail">
+      <div class="d-flex">
+        <div class="toast-body" id="fail">
+          <strong>Failed!</strong>
+          This is a failed toast.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
   <!-- result -->
   <div class="mb-3 row g-1 align-items-center justify-content-center text-center">
-    <p id="result"></p>
+    <p id="result" class="fw-bold"></p>
   </div>
   <!-- details -->
   <div class="d-flex align-items-center justify-content-evenly">

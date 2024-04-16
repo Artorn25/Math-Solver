@@ -1,34 +1,44 @@
-// Get the button:
-let mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () { scrollFunction() };
+class ScrollHandler {
+  constructor(buttonId) {
+    this.button = document.getElementById(buttonId);
+    window.onscroll = () => this.scrollFunction();
+  }
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
+  scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      this.button.style.display = "block";
+    } else {
+      this.button.style.display = "none";
+    }
+  }
+  
+  topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+class Loader {
+  constructor(spinnerSelector) {
+    this.loader = document.querySelector(spinnerSelector);
+    window.addEventListener("load", () => {
+      this.loadingscreen();
+    });
+  }
+  
+  loadingscreen() {
+    this.loader.classList.add("spinner--hidden");
+    this.loader.addEventListener("transitionend", () => {
+      document.body.removeChild(this.loader);
+    });
+  }
 }
 
+// ใช้งาน
+const scrollHandler = new ScrollHandler("myBtn");
+const loader = new Loader(".spinner-box");
 
-function loadingscreen() {
-  const loader = document.querySelector(".spinner-box");
-  loader.classList.add("spinner--hidden");
-  loader.addEventListener("transitionend", () => {
-    document.body.removeChild(loader);
-  });
-}
-window.addEventListener("load", () => {
-  loadingscreen();
-});
 function Function() {
   location.reload();
 }

@@ -245,8 +245,7 @@ function Polynomial() {
                 if (for_poly === for_in) {
                   input_x = new_value_x, input_b = new_value_b, input_y = new_value_y;
                   let result = (input_y - input_b) / input_x; // (y-b)/x
-                  const noti = new bootstrap.Toast(success);
-                  noti.show();
+                  alert('success',null);
                   document.getElementById('result').innerHTML = for_in + " = (" + input_y + "-" + input_b + ") / " + input_x
                     + "<br>" + out_a + " = " + result;
                 } else {
@@ -281,8 +280,7 @@ function Polynomial() {
                 if (for_poly === for_in) {
                   input_a = new_value_a, input_b = new_value_b, input_y = new_value_y;
                   let result = (input_y - input_b) / input_a; // (y-b)/x
-                  const noti = new bootstrap.Toast(success);
-                  noti.show();
+                  alert('success',null);
                   document.getElementById('result').innerHTML = for_in + " = (" + input_y + "-" + input_b + ") / " + input_a
                     + "<br>" + out_x + " = " + result;
                 } else {
@@ -317,8 +315,7 @@ function Polynomial() {
                 if (for_poly === for_in) {
                   input_a = new_value_a, input_x = new_value_x, input_y = new_value_y;
                   let result = input_y / (input_a * input_x); // b/ax
-                  const noti = new bootstrap.Toast(success);
-                  noti.show();
+                  alert('success',null);
                   document.getElementById('result').innerHTML = for_in + " = " + input_y + " / " + input_a + " * " + input_x
                     + "<br>" + out_b + " = " + result;
                 } else {
@@ -355,8 +352,7 @@ function Polynomial() {
                 if (for_poly === for_in) {
                   input_a = new_value_a, input_x = new_value_x, input_b = new_value_b;
                   let result = (input_a * input_x) + input_b; // b/ax
-                  const noti = new bootstrap.Toast(success);
-                  noti.show();
+                  alert('success',null);
                   document.getElementById('result').innerHTML = for_in + " = " + input_a + " * " + input_x + " + " + input_b
                     + "<br>" + out_y + " = " + result;
                 } else {
@@ -398,8 +394,7 @@ function Polynomial() {
                 result = "Can't define value";
                 if (isNaN(result2)) result2 = "Can't define value";
               } else if (isNaN(result2)) { result2 = "Can't define value"; }
-              const noti = new bootstrap.Toast(success);
-              noti.show();
+              alert('success',null);
               document.getElementById('result').innerHTML = out + " = " + result + " , " + result2;
             } else {
               alert('fail', 'Failed because formula is null or formula is not correct')
@@ -447,8 +442,7 @@ function Pythagorean() {
               let result = Math.pow(new_front_j, 2) - Math.pow(new_front_i, 2);
               result_after = Math.sqrt(result);
               if (for_pytha === for_pre) {
-                const noti = new bootstrap.Toast(success);
-                noti.show();
+                alert('success',null);
                 if (isNaN(result_after)) {
                   result_after = "Can't define value";
                   document.getElementById('result').innerHTML = out_a + "^2 = " + result + " ," + out_a + " = " + result_after;
@@ -457,8 +451,7 @@ function Pythagorean() {
                 }
               }
               else if (for_pytha === for_after) {
-                const noti = new bootstrap.Toast(success);
-                noti.show();
+                alert('success',null);
                 if (isNaN(result_after)) {
                   result = "Can't define value";
                   document.getElementById('result').innerHTML = out_a + "^2 = " + result + "," + out_a + " = " + result_after;
@@ -499,8 +492,7 @@ function Pythagorean() {
               let result = Math.pow(new_front_j, 2) - Math.pow(new_front_i, 2);
               result_after = Math.sqrt(result);
               if (for_pytha === for_pre) {
-                const noti = new bootstrap.Toast(success);
-                noti.show();
+                alert('success',null);
                 if (isNaN(result_after)) {
                   result_after = "Can't define value";
                   document.getElementById('result').innerHTML = out_b + "^2 = " + result + " ," + out_b + " = " + result_after;
@@ -509,8 +501,7 @@ function Pythagorean() {
                 }
               }
               else if (for_pytha === for_after) {
-                const noti = new bootstrap.Toast(success);
-                noti.show();
+                alert('success',null);
                 if (isNaN(result_after)) {
                   result_after = "Can't define value";
                   document.getElementById('result').innerHTML = out_b + "^2 = " + result + " ," + out_b + " = " + result_after;
@@ -551,8 +542,7 @@ function Pythagorean() {
               let result = Math.pow(new_front_i, 2) + Math.pow(new_front_j, 2);
               result_after = Math.sqrt(result);
               if (for_pytha === for_pre) {
-                const noti = new bootstrap.Toast(success);
-                noti.show();
+                alert('success',null);
                 if (isNaN(result_after)) {
                   result_after = "Can't define value";
                   document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after;
@@ -561,8 +551,7 @@ function Pythagorean() {
                 }
               }
               else if (for_pytha === for_after) {
-                const noti = new bootstrap.Toast(success);
-                noti.show();
+                alert('success',null);
                 if (isNaN(result_after)) {
                   result_after = "Can't define value";
                   document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after;
@@ -609,14 +598,13 @@ function Logarithm() {
         if (in_b === base + "=" && in_num === num + "=") {
           if (typeof base_number === "number" && typeof number === "number") {
             let result = Math.log(number) / Math.log(base_number)
+            alert('success',null);
             if (isNaN(result)) {
               result = "Can't define value";
               document.getElementById('result').innerHTML = "log<sub>" + base + "</sub>(" + num + ") = log<sub>" + base_number + "</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
             } else {
               document.getElementById('result').innerHTML = "log<sub>" + base + "</sub>(" + num + ") = log<sub>" + base_number + "</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
             }
-            const noti = new bootstrap.Toast(success);
-            noti.show();
           } else {
             alert('fail', 'Failed because define value in variable is not correct')
           }
@@ -639,14 +627,11 @@ function Logarithm() {
         if (in_num === num + "=") {
           if (typeof number === "number") {
             let result = Math.log(number * number);
+            alert('success',null);
             if (isNaN(result)) {
               result = "Can't define value";
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log(" + num + "*" + num + ") = log(" + number + "*" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
             } else {
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log(" + num + "*" + num + ") = log(" + number + "*" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
             }
           } else {
@@ -671,14 +656,11 @@ function Logarithm() {
         if (in_num === num + "=") {
           if (typeof number === "number") {
             let result = Math.log(number / number);
+            alert('success',null);
             if (isNaN(result)) {
               result = "Can't define value";
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log(" + num + "/" + num + ") = log(" + number + "/" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
             } else {
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log(" + num + "/" + num + ") = log(" + number + "/" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
             }
           } else {
@@ -703,14 +685,11 @@ function Logarithm() {
         if (in_num === num + "=") {
           if (typeof number === "number") {
             let result = number * Math.log(number);
+            alert('success',null);
             if (isNaN(result)) {
               result = "Can't define value";
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log(" + num + "^" + num + ") = log(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
             } else {
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log(" + num + "^" + num + ") = log(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
             }
           } else {
@@ -735,14 +714,11 @@ function Logarithm() {
         if (in_num === num + "=") {
           if (typeof number === "number") {
             let result = 0.5 * Math.log(number);
+            alert('success',null);
             if (isNaN(result)) {
               result = "Can't define value";
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log(√" + num + ") = log(√" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
             } else {
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log(√" + num + ") = log(√" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
             }
           } else {
@@ -767,14 +743,11 @@ function Logarithm() {
         if (in_num === num + "=") {
           if (typeof number === "number") {
             let result = Math.log(number);
+            alert('success',null);
             if (isNaN(result)) {
               result = "Can't define value";
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "ln(" + num + "^" + num + ") = ln(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
             } else {
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "ln(" + num + "^" + num + ") = ln(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
             }
           } else {
@@ -799,14 +772,11 @@ function Logarithm() {
         if (in_num === num + "=") {
           if (typeof number === "number") {
             let result = Math.log10(number);
+            alert('success',null);
             if (isNaN(result)) {
               result = "Can't define value";
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log<sub>10</sub>(" + num + ") = log<sub>10</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
             } else {
-              const noti = new bootstrap.Toast(success);
-              noti.show();
               document.getElementById('result').innerHTML = "log<sub>10</sub>(" + num + ") = log<sub>10</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
             }
           } else {

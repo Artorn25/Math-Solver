@@ -31,6 +31,10 @@
     font-style: normal
 }
 
+.container-fluid img{
+    width: 50px;
+    height: 50px;
+}
 /* Loading */
 .spinner-box {
     display: flex;

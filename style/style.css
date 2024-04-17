@@ -71,6 +71,12 @@
     animation: spinner-b87k6z 1s infinite linear;
 }
 
+/* logo */
+.logo{
+    margin-left: 10px;
+    margin-right: -10px;
+    margin-bottom: 15px;
+}
 /*  pic */
 .detail{
     width:300px; 

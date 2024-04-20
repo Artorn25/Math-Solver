@@ -72,87 +72,24 @@ function alert(status, text) {
   }
 }
 
-// $(document).ready(function () {
-//   $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #picture-1, #picture-2, #picture-3, #select_poly, #select_pytha, #select_name").hide()
-//   $("#Polynomial").click(function () {
-//     $("#result").empty();
-//     document.getElementById("Function").innerHTML = "Function Polynomial";
-//     document.getElementById("list-name").innerHTML = "Type Polynomial :"
-//     $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #picture-1, #select_poly, #select_name").show()
-//     $("#list-loga, #click-1, #click-2, #click-3, #picture-2, #picture-3, #select_pytha, #comment").hide()
-//     document.getElementById("input-de-1").innerHTML = "Input x : "
-//     document.getElementById("input-de-2").innerHTML = "Input b : "
-//     document.getElementById("input-de-3").innerHTML = "Input y : "
-//     document.getElementById("out").placeholder = " Example a";
-//     document.getElementById("for").placeholder = " Example ax+b=y";
-//     // document.getElementById("select_poly").onclick = function () { Select_Poly() }
-//     document.getElementById("select_poly").onclick = "polySelector.selectPoly()";
-//     document.getElementById("list-poly").onclick = function () { Change_Poly() }
-//     document.getElementById("submit").onclick = function () { Polynomial() }
-//   });
-//   $("#Pythagorean").click(function () {
-//     $("#result").empty();
-//     document.getElementById("Function").innerHTML = "Function Pythagorean"
-//     $("#output, #input-a, #input-b, #formula, #submit, #picture-3, #select_name, #select_pytha").show()
-//     document.getElementById("input-de-1").innerHTML = "Input b : "
-//     document.getElementById("input-de-2").innerHTML = "Input c : "
-//     $("#input-c, #list, #click-1, #click-2, #click-3, #select_poly, #picture-1, #picture-2, #comment").hide()
-//     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
-//     document.getElementById("select_pytha").onclick = function () { Select_Pytha() }
-//     document.getElementById("submit").onclick = function () { Pythagorean() }
-//   });
-//   $("#Logarithm").click(function () {
-//     $("#result").empty();
-//     document.getElementById("Function").innerHTML = "Function Logarithm"
-//     document.getElementById("list-name").innerHTML = "Type Logarithm :"
-//     $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
-//     $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #picture-1, #picture-2, #picture-3, #formula, #comment").hide();
-//     document.getElementById("input-de-1").innerHTML = "Input Base : ";
-//     document.getElementById("input-de-2").innerHTML = "Input Number : ";
-//     document.getElementById("list-loga").onclick = function () { Change_Loga() }
-//     document.getElementById("submit").onclick = function () { Logarithm() }
-//   })
-// });
-
-// function Select_Poly() {
-//   $("#result").empty();
-//   const select_poly = $('input[name="poly"]:checked').val();
-//   $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #select_poly").show();
-//   $("#list-loga, #click-1, #click-2, #click-3, #select_pytha").hide();
-//   $('#for').attr('placeholder', ' Example ax+b=y');
-//   switch (select_poly) {
-//     case 'a':
-//       Update("Input x : ", "Input b : ", "Input y : ", " Example a");
-//       break;
-//     case 'x':
-//       Update("Input a : ", "Input b : ", "Input y : ", " Example x");
-//       break;
-//     case 'b':
-//       Update("Input a : ", "Input x : ", "Input y : ", " Example b");
-//       break;
-//     case 'y':
-//       Update("Input a : ", "Input x : ", "Input b : ", " Example y");
-//       break;
-//   }
-// }
 class Selector {
   constructor() {
     this.result = $("#result");
     this.Elements_Show = ["#list", "#list-poly", "#output", "#input-a", "#input-b", "#input-c", "#formula", "#submit", "#select_poly"];
     this.Elements_Hide = ["#list-loga", "#click-1", "#click-2", "#click-3", "#select_pytha"];
-    this.Placeholder = " Example ax+b=y";
+    // this.Placeholder = " Example ax+b=y";
   }
 
   updateInputs(label1, label2, label3, placeholder) {
-    $('#input-de-1').text(label1);
-    $('#input-de-2').text(label2);
-    $('#input-de-3').text(label3);
+    $('#input-de-1').css('font-weight', 'bold').text(label1);
+    $('#input-de-2').css('font-weight', 'bold').text(label2);
+    $('#input-de-3').css('font-weight', 'bold').text(label3);
     $('#out').attr('placeholder', placeholder);
   }
 
-  setInputs(input1,input2){
-    $("#input-de-1").html(input1);
-    $("#input-de-2").html(input2);
+  updateInputs(input1,input2){
+    $("#input-de-1").css('font-weight', 'bold').html(input1);
+    $("#input-de-2").css('font-weight', 'bold').html(input2);
   }
 
   showElements(elements) {
@@ -204,9 +141,10 @@ class Selector_poly extends Selector{
   } else if (choice === "Quadratic") {
     $("#picture-2").show()
     $("#select_poly, #select_name,#picture-1, #picture-3").hide()
-    document.getElementById("input-de-1").innerHTML = "Input a :";
-    document.getElementById("input-de-2").innerHTML = "Input b :";
-    document.getElementById("input-de-3").innerHTML = "Input c :";
+    // this.updateInputs("Input a :", "Input b :", "Input c :", " Example ax^2+bx+c=0")
+    document.getElementById("input-de-1").innerHTML = "<b>Input a :</b>";
+    document.getElementById("input-de-2").innerHTML = "<b>Input b :</b>";
+    document.getElementById("input-de-3").innerHTML = "<b>Input c :</b>";
     document.getElementById("for").placeholder = " Example ax^2+bx+c=0";
   }
   }
@@ -224,19 +162,19 @@ class Selector_pytha extends Selector{
   switch (select_pytha) {
     case 'a':
       $('#out').attr('placeholder', ' Example a');
-      this.setInputs("Input b : ", "Input c : ")
+      this.updateInputs("Input b : ", "Input c : ")
       $('#input-define-a').attr('placeholder', ' Example b=2');
       $('#input-define-b').attr('placeholder', ' Example c=4');
       break;
     case 'b':
       $('#out').attr('placeholder', ' Example b');
-      this.setInputs("Input a : ", "Input c : ")
+      this.updateInputs("Input a : ", "Input c : ")
       $('#input-define-a').attr('placeholder', ' Example a=2');
       $('#input-define-b').attr('placeholder', ' Example c=4');
       break;
     case 'c':
       $('#out').attr('placeholder', ' Example c');
-      this.setInputs("Input a : ", "Input b : ")
+      this.updateInputs("Input a : ", "Input b : ")
       $('#input-define-a').attr('placeholder', ' Example a=2');
       $('#input-define-b').attr('placeholder', ' Example b=4');
       break;
@@ -253,7 +191,7 @@ class Selector_loga extends Selector{
   $("#result").empty();
   switch (choice) {
     case "General Logarithm":
-      this.setInputs(" Input Base : ", " Input Number : ");
+      this.updateInputs(" Input Base : ", " Input Number : ");
       break;
     case "Logarithm of Product":
     case "Logarithm of Division":
@@ -262,7 +200,7 @@ class Selector_loga extends Selector{
     case "Natural Logarithm":
     case "Base 10 Logarithm":
       $("#input-a").hide();
-      this.setInputs(null, " Input Number : ");
+      this.updateInputs(null, " Input Number : ");
       break;
   }
   }
@@ -281,14 +219,12 @@ $(document).ready(function () {
     document.getElementById("list-name").innerHTML = "Type Polynomial :"
     $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #picture-1, #select_poly, #select_name").show()
     $("#list-loga, #click-1, #click-2, #click-3, #picture-2, #picture-3, #select_pytha, #comment").hide()
-    document.getElementById("input-de-1").innerHTML = "Input x : "
-    document.getElementById("input-de-2").innerHTML = "Input b : "
-    document.getElementById("input-de-3").innerHTML = "Input y : "
+    document.getElementById("input-de-1").innerHTML = "<b>Input x : </b>"
+    document.getElementById("input-de-2").innerHTML = "<b>Input b : </b>"
+    document.getElementById("input-de-3").innerHTML = "<b>Input y : </b>"
     document.getElementById("out").placeholder = " Example a";
     document.getElementById("for").placeholder = " Example ax+b=y";
-    // document.getElementById("select_poly").onclick = function () { Select_Poly() }
     document.getElementById("select_poly").onclick = function() {S_poly.selectPoly()};
-    // document.getElementById("list-poly").onclick = function () { Change_Poly() }
     document.getElementById("list-poly").onclick = function () { S_poly.changePoly() }
     document.getElementById("submit").onclick = function () { Polynomial() }
   });
@@ -296,8 +232,8 @@ $(document).ready(function () {
     $("#result").empty();
     document.getElementById("Function").innerHTML = "Function Pythagorean"
     $("#output, #input-a, #input-b, #formula, #submit, #picture-3, #select_name, #select_pytha").show()
-    document.getElementById("input-de-1").innerHTML = "Input b : "
-    document.getElementById("input-de-2").innerHTML = "Input c : "
+    document.getElementById("input-de-1").innerHTML = "<b>Input b : </b>"
+    document.getElementById("input-de-2").innerHTML = "<b>Input c : </b>"
     $("#input-c, #list, #click-1, #click-2, #click-3, #select_poly, #picture-1, #picture-2, #comment").hide()
     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
     document.getElementById("select_pytha").onclick = function () { S_pytha.selectPytha() }
@@ -309,96 +245,13 @@ $(document).ready(function () {
     document.getElementById("list-name").innerHTML = "Type Logarithm :"
     $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
     $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #picture-1, #picture-2, #picture-3, #formula, #comment").hide();
-    document.getElementById("input-de-1").innerHTML = "Input Base : ";
-    document.getElementById("input-de-2").innerHTML = "Input Number : ";
-    // document.getElementById("list-loga").onclick = function () { Change_Loga() }
+    document.getElementById("input-de-1").innerHTML = "<b>Input Base : </b>";
+    document.getElementById("input-de-2").innerHTML = "<b>Input Number : </b>";
     document.getElementById("list-loga").onclick = function () { S_loga.changeLoga() }
     document.getElementById("submit").onclick = function () { Logarithm() }
   })
 });
 
-
-// function Update(text1, text2, text3, placeholder) {
-//   $('#input-de-1').text(text1);
-//   $('#input-de-2').text(text2);
-//   $('#input-de-3').text(text3);
-//   $('#out').attr('placeholder', placeholder);
-// }
-
-
-// function Change_Poly() {
-//   var choice = document.getElementById("list-poly").value;
-//   $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
-//   $("#result").empty();
-//   if (choice === "Linear") {
-//     $("#picture-1, #select_poly").show()
-//     $("#picture-2, #picture-3").hide()
-//     document.getElementById("for").placeholder = " Example ax+b=0";
-//     document.getElementById("submit").onclick = function () { Polynomial() }
-//   } else if (choice === "Quadratic") {
-//     $("#picture-2").show()
-//     $("#select_poly, #select_name,#picture-1, #picture-3").hide()
-//     document.getElementById("input-de-1").innerHTML = "Input a :";
-//     document.getElementById("input-de-2").innerHTML = "Input b :";
-//     document.getElementById("input-de-3").innerHTML = "Input c :";
-//     document.getElementById("for").placeholder = " Example ax^2+bx+c=0";
-//     document.getElementById("submit").onclick = function () { Polynomial() }
-//   }
-
-// }
-
-// function Select_Pytha() {
-//   const select_pytha = $('input[name="pytha"]:checked').val();
-//   $("#output, #input-a, #input-b, #formula, #submit, #select_pytha").show();
-//   $("#list, #list-poly, #input-c, #list-loga, #click-1, #click-2, #click-3, #select_poly").hide();
-//   $('#for').attr('placeholder', ' Example a^2+b^2=c^2');
-//   $("#result").empty();
-//   switch (select_pytha) {
-//     case 'a':
-//       $('#out').attr('placeholder', ' Example a');
-//       setInputs("Input b : ", "Input c : ")
-//       $('#input-define-a').attr('placeholder', ' Example b=2');
-//       $('#input-define-b').attr('placeholder', ' Example c=4');
-//       break;
-//     case 'b':
-//       $('#out').attr('placeholder', ' Example b');
-//       setInputs("Input a : ", "Input c : ")
-//       $('#input-define-a').attr('placeholder', ' Example a=2');
-//       $('#input-define-b').attr('placeholder', ' Example c=4');
-//       break;
-//     case 'c':
-//       $('#out').attr('placeholder', ' Example c');
-//       setInputs("Input a : ", "Input b : ")
-//       $('#input-define-a').attr('placeholder', ' Example a=2');
-//       $('#input-define-b').attr('placeholder', ' Example b=4');
-//       break;
-//   }
-// }
-
-// function Change_Loga() {
-//   var choice = $("#list-loga").val();
-//   $("#output, #input-a, #input-b, #submit").show();
-//   $("#result").empty();
-//   switch (choice) {
-//     case "General Logarithm":
-//       setInputs(" Input Base : ", " Input Number : ");
-//       break;
-//     case "Logarithm of Product":
-//     case "Logarithm of Division":
-//     case "Logarithm of Power":
-//     case "Logarithm of Square Root":
-//     case "Natural Logarithm":
-//     case "Base 10 Logarithm":
-//       $("#input-a").hide();
-//       setInputs(null, " Input Number : ");
-//       break;
-//   }
-// }
-
-// function setInputs(input1, input2) {
-//   $("#input-de-1").html(input1);
-//   $("#input-de-2").html(input2);
-// }
 
 function Polynomial() {
   let choice = document.getElementById("list-poly").value,

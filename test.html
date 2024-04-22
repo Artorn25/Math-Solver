@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,4 +40,41 @@
     </script>
 </body>
 
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>รับค่า Input จาก HTML</title>
+</head>
+<body>
+
+<input type="text" id="myInput" placeholder="กรอกข้อความที่นี่" />
+<button id="getValueBtn">รับค่า</button>
+<p id="displayValue"></p>
+
+<script>
+class InputHandler {
+  constructor() {
+    // this.inputId = inputId;
+    // this.displayId = displayId;
+    this.inputElement = document.getElementById("myInput");
+    this.displayElement = document.getElementById("displayValue");
+    this.getValueButton = document.getElementById('getValueBtn');
+    this.getValueButton.addEventListener('click', () => this.getValue());
+  }
+
+  getValue() {
+    console.log(this.inputElement.value)
+    // var inputValue = this.inputElement.value;
+    this.displayElement.textContent = "ค่าที่รับมา: " + this.inputElement.value;
+  }
+}
+
+// สร้างอินสแตนซ์ของคลาส InputHandler และส่ง id ของอิลิเมนต์ input และ display ไปให้
+const inputHandler = new InputHandler();
+</script>
+
+</body>
 </html>

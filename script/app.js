@@ -115,18 +115,30 @@ class Selector_poly extends Selector {
     this.hideElements(this.Elements_Hide);
     switch (select_poly) {
       case 'a':
+        // document.getElementById("out").oninput = ListPoly.Updateformula;
+        // document.getElementById("input-define-a").oninput = ListPoly.Updateformula;
+        // document.getElementById("input-define-b").oninput = ListPoly.Updateformula;
+        // document.getElementById("input-define-c").oninput = ListPoly.Updateformula;
+        $("#pic-poly-find-a").show()
+        $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y").hide()
         this.updateInputs("Input x : ", "Input b : ", "Input y : ");
         this.updatePlaceholder(" Example a", " Example x = 3", "Example b = 2", "Example y = 5")
         break;
       case 'x':
+        $("#pic-poly-find-x").show()
+        $("#pic-poly-find-a, #pic-poly-find-b, #pic-poly-find-y").hide()
         this.updateInputs("Input a : ", "Input b : ", "Input y : ", " Example x");
         this.updatePlaceholder(" Example x", " Example a = 3", "Example b = 2", "Example y = 5")
         break;
       case 'b':
+        $("#pic-poly-find-b").show()
+        $("#pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-y").hide()
         this.updateInputs("Input a : ", "Input x : ", "Input y : ", " Example b");
         this.updatePlaceholder(" Example b", " Example a = 3", "Example x = 2", "Example y = 5")
         break;
       case 'y':
+        $("#pic-poly-find-y").show()
+        $("#pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b").hide()
         this.updateInputs("Input a : ", "Input x : ", "Input b : ", " Example y");
         this.updatePlaceholder(" Example y", " Example a = 3", "Example x = 2", "Example b = 5")
         break;
@@ -137,12 +149,12 @@ class Selector_poly extends Selector {
     $("#output, #input-a, #input-b, #input-c, #formula, #submit").show()
     $("#result").empty();
     if (choice === "Linear") {
-      $("#picture-1, #select_poly").show()
-      $("#picture-2, #picture-3").hide()
+      $("#pic-poly-find-a, #select_poly").show()
+      $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c").hide()
       document.getElementById("for").placeholder = " Example ax+b=0";
     } else if (choice === "Quadratic") {
-      $("#picture-2").show()
-      $("#select_poly, #select_name,#picture-1, #picture-3").hide()
+      $("#pic-poly-qua").show()
+      $("#select_poly, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #picture-3").hide()
       // this.updateInputs("Input a :", "Input b :", "Input c :", " Example ax^2+bx+c=0")
       document.getElementById("input-de-1").innerHTML = "<b>Input a :</b>";
       document.getElementById("input-de-2").innerHTML = "<b>Input b :</b>";
@@ -163,14 +175,20 @@ class Selector_pytha extends Selector {
     $("#result").empty();
     switch (select_pytha) {
       case 'a':
+        $("#pic-pytha-find-a").show()
+        $("#pic-pytha-find-b, #pic-pytha-find-c").hide()
         this.updateInputs("Input b : ", "Input c : ", null, null)
         this.updatePlaceholder("Example a", "Example b=2", "Example c=4", "Example y = 5")
         break;
       case 'b':
+        $("#pic-pytha-find-b").show()
+        $("#pic-pytha-find-a, #pic-pytha-find-c").hide()
         this.updateInputs("Input a : ", "Input c : ", null, null)
         this.updatePlaceholder("Example b", "Example a=2", "Example c=4", "Example y = 5")
         break;
       case 'c':
+        $("#pic-pytha-find-c").show()
+        $("#pic-pytha-find-a, #pic-pytha-find-b").hide()
         this.updateInputs("Input a : ", "Input b : ", null, null)
         this.updatePlaceholder("Example c", "Example a=2", "Example b=4", "Example y = 5")
         break;
@@ -209,33 +227,31 @@ const S_poly = new Selector_poly(),
 
 
 $(document).ready(function () {
-  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #picture-1, #picture-2, #picture-3, #select_poly, #select_pytha, #select_name").hide()
+  $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #select_poly, #select_pytha, #select_name").hide()
   $("#Polynomial").click(function () {
     $("#result").empty();
     document.getElementById("Function").innerHTML = "Function Polynomial";
     document.getElementById("list-name").innerHTML = "Type Polynomial :"
-    $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #picture-1, #select_poly, #select_name").show()
-    $("#list-loga, #click-1, #click-2, #click-3, #picture-2, #picture-3, #select_pytha, #comment").hide()
+    $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #pic-poly-find-a, #select_poly, #select_name").show()
+    $("#list-loga, #click-1, #click-2, #click-3, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #select_pytha, #comment").hide()
     document.getElementById("input-de-1").innerHTML = "<b>Input x : </b>"
     document.getElementById("input-de-2").innerHTML = "<b>Input b : </b>"
     document.getElementById("input-de-3").innerHTML = "<b>Input y : </b>"
     document.getElementById("for").placeholder = " Example ax+b=y , y=ax+b";
     document.getElementById("select_poly").onclick = function () { S_poly.selectPoly() };
     document.getElementById("list-poly").onclick = function () { S_poly.changePoly() }
-    // document.getElementById("submit").onclick = function () { Polynomial() }
     document.getElementById("submit").onclick = function () { ListPoly.ListPoly() };
 
   });
   $("#Pythagorean").click(function () {
     $("#result").empty();
     document.getElementById("Function").innerHTML = "Function Pythagorean"
-    $("#output, #input-a, #input-b, #formula, #submit, #picture-3, #select_name, #select_pytha").show()
+    $("#output, #input-a, #input-b, #formula, #submit, #pic-pytha-find-a, #select_name, #select_pytha").show()
     document.getElementById("input-de-1").innerHTML = "<b>Input b : </b>"
     document.getElementById("input-de-2").innerHTML = "<b>Input c : </b>"
-    $("#input-c, #list, #click-1, #click-2, #click-3, #select_poly, #picture-1, #picture-2, #comment").hide()
+    $("#input-c, #list, #click-1, #click-2, #click-3, #select_poly, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-b, #pic-pytha-find-c, #comment").hide()
     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
     document.getElementById("select_pytha").onclick = function () { S_pytha.selectPytha() }
-    // document.getElementById("submit").onclick = function () { Pythagorean() }
     document.getElementById("submit").onclick = function () { ListPytha.ListPytha() }
   });
   $("#Logarithm").click(function () {
@@ -243,11 +259,10 @@ $(document).ready(function () {
     document.getElementById("Function").innerHTML = "Function Logarithm"
     document.getElementById("list-name").innerHTML = "Type Logarithm :"
     $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
-    $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #picture-1, #picture-2, #picture-3, #formula, #comment").hide();
+    $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #formula, #comment").hide();
     document.getElementById("input-de-1").innerHTML = "<b>Input Base : </b>";
     document.getElementById("input-de-2").innerHTML = "<b>Input Number : </b>";
     document.getElementById("list-loga").onclick = function () { S_loga.changeLoga() }
-    // document.getElementById("submit").onclick = function () { Logarithm() }
     document.getElementById("submit").onclick = function () { ListLoga.ListLoga() }
   })
 });
@@ -293,12 +308,41 @@ class Polynomial extends Functions {
   constructor() {
     super();
   }
+  // Updateformula(){
+  //   let value_o = document.getElementById('out').value,
+  //   value_a = document.getElementById('input-define-a').value,
+  //   value_b = document.getElementById('input-define-b').value,
+  //   value_c = document.getElementById('input-define-c').value;
+  //   if (value_o != null ){
+  //     let o = value_o[0];
+  //     if(value_a != null){
+  //         let a = value_a[0];
+  //         if(value_b != null){
+  //             let b = value_b[0];
+  //             if(value_c != null){
+  //               let c = value_c[0];
+  //               document.getElementById('for').value = c + "=" + o + "" + a + "+" + b;
+  //             }
+  //         }
+  //     }else{
+  //     }
+  // }else{
+  //     txt = 'first value not define'
+  //     let x = document.getElementById('result').value = txt;
+  //     if (txt_2 != null){
+  //         let y = document.getElementById('result').value = txt_2[0];
+  //     }else{
+          
+  //     }
+  // }
+  // }
   ListPoly() {
     const choice = document.getElementById("list-poly").value,
       select_poly = document.querySelector('input[name="poly"]:checked').value;
     if (choice === "Linear") {
       switch (select_poly) {
         case 'a':
+          this.Updateformula();
           if (this.o.value.length < 2 && this.o.value.length > 0 && isNaN(this.o.value)) {
             var out_a = this.o.value[0], input_x = this.a.value[0], input_b = this.b.value[0], input_y = this.c.value[0];
             if (isNaN(this.a.value) && isNaN(this.b.value) && isNaN(this.c.value)) {

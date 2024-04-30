@@ -342,7 +342,7 @@ class Polynomial extends Functions {
     if (choice === "Linear") {
       switch (select_poly) {
         case 'a':
-          this.Updateformula();
+          // this.Updateformula();
           if (this.o.value.length < 2 && this.o.value.length > 0 && isNaN(this.o.value)) {
             var out_a = this.o.value[0], input_x = this.a.value[0], input_b = this.b.value[0], input_y = this.c.value[0];
             if (isNaN(this.a.value) && isNaN(this.b.value) && isNaN(this.c.value)) {

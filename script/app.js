@@ -91,6 +91,7 @@ class Selector {
     $('#input-define-b').attr('placeholder', place_in_2);
     $('#input-define-c').attr('placeholder', place_in_3);
   }
+
   showElements(elements) {
     elements.forEach(element => {
       $(element).show();
@@ -115,10 +116,6 @@ class Selector_poly extends Selector {
     this.hideElements(this.Elements_Hide);
     switch (select_poly) {
       case 'a':
-        // document.getElementById("out").oninput = ListPoly.Updateformula;
-        // document.getElementById("input-define-a").oninput = ListPoly.Updateformula;
-        // document.getElementById("input-define-b").oninput = ListPoly.Updateformula;
-        // document.getElementById("input-define-c").oninput = ListPoly.Updateformula;
         $("#pic-poly-find-a").show()
         $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y").hide()
         this.updateInputs("Input x : ", "Input b : ", "Input y : ");
@@ -151,6 +148,7 @@ class Selector_poly extends Selector {
     if (choice === "Linear") {
       $("#pic-poly-find-a, #select_poly").show()
       $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c").hide()
+      $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
       document.getElementById("for").placeholder = " Example ax+b=0";
     } else if (choice === "Quadratic") {
       $("#pic-poly-qua").show()
@@ -205,14 +203,33 @@ class Selector_loga extends Selector {
     $("#result").empty();
     switch (choice) {
       case "General Logarithm":
+        $("#pic-loga-gene").show()
+        $("#pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
         this.updateInputs(" Input Base : ", " Input Number : ", null, null);
         break;
       case "Logarithm of Product":
+        $("#pic-loga-pro").show()
+        $("#pic-loga-gene, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+        break;
       case "Logarithm of Division":
+        $("#pic-loga-divi").show()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+        break;
       case "Logarithm of Power":
+        $("#pic-loga-power").show()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+        break;
       case "Logarithm of Square Root":
+        $("#pic-loga-squ").show()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-natural, #pic-loga-base10").hide()
+        break;
       case "Natural Logarithm":
+        $("#pic-loga-natural").show()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-base10").hide()
+        break;
       case "Base 10 Logarithm":
+        $("#pic-loga-base10").show()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural").hide()
         $("#input-a").hide();
         this.updateInputs(null, " Input Number : ", null, null);
         break;
@@ -225,23 +242,27 @@ const S_poly = new Selector_poly(),
   S_pytha = new Selector_pytha(),
   S_loga = new Selector_loga();
 
-
 $(document).ready(function () {
   $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #select_poly, #select_pytha, #select_name").hide()
+  $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
   $("#Polynomial").click(function () {
     $("#result").empty();
     document.getElementById("Function").innerHTML = "Function Polynomial";
     document.getElementById("list-name").innerHTML = "Type Polynomial :"
     $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #pic-poly-find-a, #select_poly, #select_name").show()
     $("#list-loga, #click-1, #click-2, #click-3, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #select_pytha, #comment").hide()
+    $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
     document.getElementById("input-de-1").innerHTML = "<b>Input x : </b>"
     document.getElementById("input-de-2").innerHTML = "<b>Input b : </b>"
     document.getElementById("input-de-3").innerHTML = "<b>Input y : </b>"
-    document.getElementById("for").placeholder = " Example ax+b=y , y=ax+b";
+    // document.getElementById("out").oninput = getvalue();
+    // document.getElementById("input-de-1").oninput = getvalue();
+    // document.getElementById("input-de-2").oninput = getvalue();
+    // document.getElementById("input-de-3").oninput = getvalue();
+    document.getElementById("for").placeholder = " Example y=ax+b";
     document.getElementById("select_poly").onclick = function () { S_poly.selectPoly() };
     document.getElementById("list-poly").onclick = function () { S_poly.changePoly() }
     document.getElementById("submit").onclick = function () { ListPoly.ListPoly() };
-
   });
   $("#Pythagorean").click(function () {
     $("#result").empty();
@@ -250,6 +271,7 @@ $(document).ready(function () {
     document.getElementById("input-de-1").innerHTML = "<b>Input b : </b>"
     document.getElementById("input-de-2").innerHTML = "<b>Input c : </b>"
     $("#input-c, #list, #click-1, #click-2, #click-3, #select_poly, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-b, #pic-pytha-find-c, #comment").hide()
+    $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
     document.getElementById("select_pytha").onclick = function () { S_pytha.selectPytha() }
     document.getElementById("submit").onclick = function () { ListPytha.ListPytha() }
@@ -260,6 +282,8 @@ $(document).ready(function () {
     document.getElementById("list-name").innerHTML = "Type Logarithm :"
     $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
     $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #formula, #comment").hide();
+    $("#pic-loga-gene").show()
+    $("#pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
     document.getElementById("input-de-1").innerHTML = "<b>Input Base : </b>";
     document.getElementById("input-de-2").innerHTML = "<b>Input Number : </b>";
     document.getElementById("list-loga").onclick = function () { S_loga.changeLoga() }
@@ -332,7 +356,7 @@ class Polynomial extends Functions {
   //     if (txt_2 != null){
   //         let y = document.getElementById('result').value = txt_2[0];
   //     }else{
-          
+
   //     }
   // }
   // }
@@ -342,7 +366,6 @@ class Polynomial extends Functions {
     if (choice === "Linear") {
       switch (select_poly) {
         case 'a':
-          // this.Updateformula();
           if (this.o.value.length < 2 && this.o.value.length > 0 && isNaN(this.o.value)) {
             var out_a = this.o.value[0], input_x = this.a.value[0], input_b = this.b.value[0], input_y = this.c.value[0];
             if (isNaN(this.a.value) && isNaN(this.b.value) && isNaN(this.c.value)) {
@@ -353,15 +376,16 @@ class Polynomial extends Functions {
               if (in_x === this.a.value + "=" && in_b === this.b.value + "=" && in_y === this.c.value + "=") {
                 if (typeof new_value_x === "number" && typeof new_value_b === "number" && typeof new_value_y == "number") {
                   let for_poly = this.replacedspace(this.for.value), // ax+b=y || y=ax+b
-                    for_in = out_a + input_x + "+" + input_b + "=" + input_y,// ax+b=y
+                    // for_in = out_a + input_x + "+" + input_b + "=" + input_y,// ax+b=y
                     for_be = input_y + "=" + out_a + input_x + "+" + input_b; // y=ax+b
                   input_x = new_value_x, input_b = new_value_b, input_y = new_value_y;
                   let result = (input_y - input_b) / input_x; // (y-b)/x
-                  if (for_poly === for_in) {
-                    this.alert('success', null);
-                    document.getElementById('result').innerHTML = for_in + " = (" + input_y + "-" + input_b + ") / " + input_x
-                      + "<br>" + out_a + " = " + result;
-                  } else if (for_poly === for_be) {
+                  // if (for_poly === for_in) {
+                  //   this.alert('success', null);
+                  //   document.getElementById('result').innerHTML = for_in + " = (" + input_y + "-" + input_b + ") / " + input_x
+                  //     + "<br>" + out_a + " = " + result;
+                  // } 
+                  if (for_poly === for_be) {
                     this.alert('success', null);
                     document.getElementById('result').innerHTML = for_be + " = (" + input_y + "-" + input_b + ") / " + input_x
                       + "<br>" + out_a + " = " + result;
@@ -382,15 +406,16 @@ class Polynomial extends Functions {
               if (in_a === this.a.value + "=" && in_b === this.b.value + "=" && in_y === this.c.value + "=") {
                 if (typeof new_value_a === "number" && typeof new_value_b === "number" && typeof new_value_y == "number") {
                   let for_poly = this.replacedspace(this.for.value), // ax+b=y || y=ax+b
-                    for_in = input_a + out_x + "+" + input_b + "=" + input_y, // ax+b=y
+                    // for_in = input_a + out_x + "+" + input_b + "=" + input_y, // ax+b=y
                     for_be = input_y + "=" + input_a + out_x + "+" + input_b;
                   input_a = new_value_a, input_b = new_value_b, input_y = new_value_y;
                   let result = (input_y - input_b) / input_a; // (y-b)/x
-                  if (for_poly === for_in) {
-                    this.alert('success', null);
-                    document.getElementById('result').innerHTML = for_in + " = (" + input_y + "-" + input_b + ") / " + input_a
-                      + "<br>" + out_x + " = " + result;
-                  } else if (for_poly === for_be) {
+                  // if (for_poly === for_in) {
+                  //   this.alert('success', null);
+                  //   document.getElementById('result').innerHTML = for_in + " = (" + input_y + "-" + input_b + ") / " + input_a
+                  //     + "<br>" + out_x + " = " + result;
+                  // } 
+                  if (for_poly === for_be) {
                     this.alert('success', null);
                     document.getElementById('result').innerHTML = for_be + " = (" + input_y + "-" + input_b + ") / " + input_a
                       + "<br>" + out_x + " = " + result;
@@ -411,15 +436,16 @@ class Polynomial extends Functions {
               if (in_a === this.a.value + "=" && in_x === this.b.value + "=" && in_y === this.c.value + "=") {
                 if (typeof new_value_a === "number" && typeof new_value_x === "number" && typeof new_value_y == "number") {
                   let for_poly = this.replacedspace(this.for.value), // ax+b=y || y=ax+b
-                    for_in = input_a + input_x + "+" + out_b + "=" + input_y, // ax+b=y
+                    // for_in = input_a + input_x + "+" + out_b + "=" + input_y, // ax+b=y
                     for_be = input_y + "=" + input_a + input_x + "+" + out_b; // y=ax+b
                   input_a = new_value_a, input_x = new_value_x, input_y = new_value_y;
                   let result = input_y / (input_a * input_x); // b/ax
-                  if (for_poly === for_in) {
-                    this.alert('success', null);
-                    document.getElementById('result').innerHTML = for_in + " = " + input_y + " / " + input_a + " * " + input_x
-                      + "<br>" + out_b + " = " + result;
-                  } else if (for_poly === for_be) {
+                  // if (for_poly === for_in) {
+                  //   this.alert('success', null);
+                  //   document.getElementById('result').innerHTML = for_in + " = " + input_y + " / " + input_a + " * " + input_x
+                  //     + "<br>" + out_b + " = " + result;
+                  // }
+                   if (for_poly === for_be) {
                     this.alert('success', null);
                     document.getElementById('result').innerHTML = for_in + " = " + input_y + " / " + input_a + " * " + input_x
                       + "<br>" + out_b + " = " + result;
@@ -440,16 +466,17 @@ class Polynomial extends Functions {
               if (in_a === this.a.value + "=" && in_x === this.b.value + "=" && in_b === this.c.value + "=") {
                 if (typeof new_value_a === "number" && typeof new_value_x === "number" && typeof new_value_b == "number") {
                   let for_poly = this.replacedspace(this.for.value), // ax+b=y || y=ax+b
-                    for_in = input_a + input_x + "+" + input_b + "=" + out_y, // ax+b=y
+                    // for_in = input_a + input_x + "+" + input_b + "=" + out_y, // ax+b=y
                     for_be = out_y + "=" + input_a + input_x + "+" + input_b; // y=ax+b
                   input_a = new_value_a, input_x = new_value_x, input_b = new_value_b;
                   let result = (input_a * input_x) + input_b; // ax+b
                   console.log(for_be)
-                  if (for_poly === for_in) {
-                    this.alert('success', null);
-                    document.getElementById('result').innerHTML = for_in + " = " + input_a + " * " + input_x + " + " + input_b
-                      + "<br>" + out_y + " = " + result;
-                  } else if (for_poly === for_be) {
+                  // if (for_poly === for_in) {
+                  //   this.alert('success', null);
+                  //   document.getElementById('result').innerHTML = for_in + " = " + input_a + " * " + input_x + " + " + input_b
+                  //     + "<br>" + out_y + " = " + result;
+                  // } 
+                  if (for_poly === for_be) {
                     this.alert('success', null);
                     document.getElementById('result').innerHTML = for_be + " = " + input_a + " * " + input_x + " + " + input_b
                       + "<br>" + out_y + " = " + result;
@@ -584,7 +611,7 @@ class Pythagorean extends Functions {
               if (typeof new_front_i === "number" && typeof new_front_j === "number") {
                 let for_pytha = this.replacedspace(this.for.value),
                   for_pre = a + "^2+" + b + "^2=" + out_c + "^2",
-                  for_after = out_c + "^2=" + a + "^2+" + b + "^2",
+                  // for_after = out_c + "^2=" + a + "^2+" + b + "^2",
                   result = Math.pow(new_front_i, 2) + Math.pow(new_front_j, 2),
                   result_after = Math.sqrt(result);
                 if (for_pytha === for_pre) {
@@ -596,15 +623,15 @@ class Pythagorean extends Functions {
                     document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after.toFixed(4);
                   }
                 }
-                else if (for_pytha === for_after) {
-                  this.alert('success', null);
-                  if (isNaN(result_after)) {
-                    result_after = "Can't define value";
-                    document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after;
-                  } else {
-                    document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after.toFixed(4);
-                  }
-                } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
+                // else if (for_pytha === for_after) {
+                //   this.alert('success', null);
+                //   if (isNaN(result_after)) {
+                //     result_after = "Can't define value";
+                //     document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after;
+                //   } else {
+                //     document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after.toFixed(4);
+                //   }
+                // } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
               } else { this.alert('fail', 'Failed because define value in variable is not correct') }
             } else { this.alert('fail', 'Failed because define variable is related') }
           } else { this.alert('fail', 'Failed because variable input isn\'t charecter or null') }
@@ -774,7 +801,134 @@ class Logarithm extends Functions {
   }
 }
 
-const ListPoly = new Polynomial(),
+function getvalue() {
+  let value_o = document.getElementById('out').value,
+    value_a = document.getElementById('input-define-a').value,
+    value_b = document.getElementById('input-define-b').value,
+    value_c = document.getElementById('input-define-c').value;
+  const choice = document.getElementById("list-poly").value,
+      select_poly = document.querySelector('input[name="poly"]:checked').value,
+      select_pytha = document.querySelector('input[name="pytha"]:checked').value;
+  if (choice === 'Linear'){
+    switch (select_poly) {
+      case 'a':
+      if (value_o != null) {
+        let o = value_o[0];
+        if (value_a != null) {
+          let a = value_a[0];
+          if (value_b != null) {
+            let b = value_b[0];
+            if (value_c != null) {
+              let c = value_c[0];
+              document.getElementById('for').value = c + "=" + o + "" + a + "+" + b;
+            }
+          }
+        } else {
+        }
+      }
+      break;
+      case 'x':
+      if (value_o != null) {
+        let o = value_o[0];
+        if (value_a != null) {
+          let a = value_a[0];
+          if (value_b != null) {
+            let b = value_b[0];
+            if (value_c != null) {
+              let c = value_c[0];
+              document.getElementById('for').value = c + "=" + a + "" + o + "+" + b;
+            }
+          }
+        } else { }
+      }
+      break;
+      case 'b':
+      if (value_o != null) {
+        let o = value_o[0];
+        if (value_a != null) {
+          let a = value_a[0];
+          if (value_b != null) {
+            let b = value_b[0];
+            if (value_c != null) {
+              let c = value_c[0];
+              document.getElementById('for').value = c + "=" + a + "" + b + "+" + o;
+            }
+          }
+        } else { }
+      }
+      break;
+    case 'y':
+      if (value_o != null) {
+        let o = value_o[0];
+        if (value_a != null) {
+          let a = value_a[0];
+          if (value_b != null) {
+            let b = value_b[0];
+            if (value_c != null) {
+              let c = value_c[0];
+              document.getElementById('for').value = o + "=" + a + "" + b + "+" + c;
+            }
+          }
+        } else { }
+      }
+      break;
+    }
+  }else if (choice === 'Quadratic'){
+    if (value_o != null) {
+      let o = value_o[0];
+      if (value_a != null) {
+        let a = value_a[0];
+        if (value_b != null) {
+          let b = value_b[0];
+          if (value_c != null) {
+            let c = value_c[0];
+            document.getElementById('for').value = a + o + "^2+" + b + o + "+" + c + "=0";
+          }
+        }
+      } else { }
+    }
+  }
+    switch (select_pytha) {
+      case 'a':
+        if (value_o != null) {
+          let o = value_o[0];
+          if (value_a != null) {
+            let a = value_a[0];
+            if (value_b != null) {
+              let b = value_b[0];
+                document.getElementById('for').value = o + "^2+" + a + "^2=" + b + "^2";
+            }
+          } else { }
+        }
+        break;
+      case 'b':
+        if (value_o != null) {
+          let o = value_o[0];
+          if (value_a != null) {
+            let a = value_a[0];
+            if (value_b != null) {
+              let b = value_b[0];
+                document.getElementById('for').value = a + "^2+" + o + "^2=" + b + "^2";
+            }
+          } else { }
+        }
+        break;
+      case 'c':
+        if (value_o != null) {
+          let o = value_o[0];
+          if (value_a != null) {
+            let a = value_a[0];
+            if (value_b != null) {
+              let b = value_b[0];
+                document.getElementById('for').value = a + "^2+" + b + "^2=" + o + "^2";
+            }
+          } else { }
+        }
+        break;
+    }
+  }
+
+  const ListPoly = new Polynomial(),
   ListPytha = new Pythagorean(),
   ListLoga = new Logarithm();
 // function Test() {

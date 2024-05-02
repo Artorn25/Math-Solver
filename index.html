@@ -98,14 +98,24 @@
       </div>
       <!-- picture -->
       <div class="mb-3 align-items-center justify-content-center">
+        <!-- poly -->
         <img src="/image/poly_find_a.jpg" alt="" id="pic-poly-find-a" style="height: 200px; width: 250px" />
         <img src="/image/poly_find_x.jpg" alt="" id="pic-poly-find-x" style="height: 200px; width: 250px" />
         <img src="/image/poly_find_b.jpg" alt="" id="pic-poly-find-b" style="height: 200px; width: 250px" />
         <img src="/image/poly_find_y.jpg" alt="" id="pic-poly-find-y" style="height: 200px; width: 250px" />
         <img src="/image/quadratic.jpg" alt="" id="pic-poly-qua" style="height: 200px; width: 350px" />
+        <!-- pytha -->
         <img src="/image/pytha_find_a.jpg" alt="" id="pic-pytha-find-a" style="height: 250px; width: 300px" />
         <img src="/image/pytha_find_b.jpg" alt="" id="pic-pytha-find-b" style="height: 250px; width: 300px" />
         <img src="/image/pytha_find_c.jpg" alt="" id="pic-pytha-find-c" style="height: 250px; width: 300px" />
+        <!-- loga -->
+        <img src="/image/loga_gene.jpg" alt="" id="pic-loga-gene" style="height: 200px; width: 300px" />
+        <img src="/image/loga_pro.png" alt="" id="pic-loga-pro" style="height: 180px; width: 300px" />
+        <img src="/image/loga_divi.png" alt="" id="pic-loga-divi" style="height: 180px; width: 300px" />
+        <img src="/image/loga_power.png" alt="" id="pic-loga-power" style="height: 160px; width: 300px" />
+        <img src="/image/loga_squ.png" alt="" id="pic-loga-squ" style="height: 160px; width: 300px" />
+        <img src="/image/loga_natural.png" alt="" id="pic-loga-natural" style="height: 160px; width: 300px" />
+        <img src="/image/loga_base10.png" alt="" id="pic-loga-base10" style="height: 180px; width: 300px" />
       </div>
       <p id="select_name">Please select your find result:</p>
       <div class="d-flex align-items-center justify-content-center" id="select_poly">
@@ -146,7 +156,7 @@
           <label for="" class="col-form-label"><b>Output : </b></label>
         </div>
         <div class="col-auto">
-          <input type="text" name="" class="form-control" id="out" placeholder=" Example y , z " />
+          <input type="text" name="" class="form-control" id="out" oninput="getvalue()" placeholder=" Example y , z " />
         </div>
       </div>
   </div>
@@ -156,7 +166,7 @@
       <label for="" class="col-form-label" id="input-de-1"><b>Input :</b></label>
     </div>
     <div class="col-auto">
-      <input type="text" name="" class="form-control" id="input-define-a" placeholder=" Example a = 5" />
+      <input type="text" name="" class="form-control" id="input-define-a" oninput="getvalue()" placeholder=" Example a = 5" />
     </div>
   </div>
   <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-b">
@@ -164,7 +174,7 @@
       <label for="" class="col-form-label" id="input-de-2"><b>Input :</b></label>
     </div>
     <div class="col-auto">
-      <input type="text" name="" class="form-control" id="input-define-b" placeholder=" Example b = 2" />
+      <input type="text" name="" class="form-control" id="input-define-b" oninput="getvalue()" placeholder=" Example b = 2" />
     </div>
   </div>
   <div class="mb-3 row g-2 align-items-center justify-content-center" id="input-c">
@@ -172,7 +182,7 @@
       <label for="" class="col-form-label" id="input-de-3"><b>Input :</b></label>
     </div>
     <div class="col-auto">
-      <input type="text" name="" class="form-control" id="input-define-c" placeholder=" Example c = 4" />
+      <input type="text" name="" class="form-control" id="input-define-c" oninput="getvalue()" placeholder=" Example c = 4" />
     </div>
   </div>
   <!-- Formula -->
@@ -181,8 +191,8 @@
       <label for="" class="col-form-label"><b>Formula : </b></label>
     </div>
     <div class="col-auto">
-      <!-- <input type="text" name="" class="form-control" id="for" readonly/> -->
-      <input type="text" name="" class="form-control" id="for" />
+      <input type="text" name="" class="form-control" id="for" readonly/>
+      <!-- <input type="text" name="" class="form-control" id="for" /> -->
     </div>
   </div>
   <!-- Button -->

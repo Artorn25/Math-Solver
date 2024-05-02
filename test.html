@@ -10,6 +10,7 @@
     <label for="">Input 1 :</label><input type="text" id="txt-2" oninput="getvalue()"><br>
     <label for="">Input 2 :</label><input type="text" id="txt-3" oninput="getvalue()"><br>
     <label for="">Formula :</label><input type="text" id="result" readonly>
+    <input type="submit" id="submit">
     <p id="test"></p>
     <script>
         function getvalue(){
@@ -18,11 +19,14 @@
             let in_3 = document.getElementById('txt-3').value;
             if (out != null ){
                 let x = out[0];
+                console.log(x)
                 if(in_2 != null){
                     let y = in_2[0];
+                    console.log(y)
                     if(in_3 != null){
                         let z = in_3[0];
                         document.getElementById('result').value = y + "^2+" + z + "^2=" + x + "^2";
+                        console.log(y + "^2+" + z + "^2=" + x + "^2")
                     }
                 }else{
                 }

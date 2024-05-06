@@ -1,4 +1,55 @@
 
+// Function to display feedbacks
+function displayFeedbacks() {
+  var feedbacks = JSON.parse(localStorage.getItem('feedbacks'));
+  var feedbackListDiv = document.getElementById('feedbackList');
+
+  if (feedbacks !== null && feedbacks.length > 0) {
+    var html = '<div class="list-group">';
+    for (var i = 0; i < feedbacks.length; i++) {
+      html += '<div class="list-group-item"><strong>Name: </strong>' + feedbacks[i].name + '<br><strong>Comment: </strong>' + feedbacks[i].comment + '</div>';
+    }
+    html += '</div>';
+    feedbackListDiv.innerHTML = html;
+  } else {
+    feedbackListDiv.innerHTML = '<p class="text-center">No feedbacks yet.</p>';
+  }
+}
+
+// Function to send message
+function sendMessage() {
+  var name = document.getElementById("recipient-name").value;
+  var comment = document.getElementById("message-text").value;
+
+  if (name.trim() !== '' && comment.trim() !== '') {
+    var feedback = {
+      name: name,
+      comment: comment
+    };
+
+    if (localStorage.getItem('feedbacks') === null) {
+      var feedbacks = [];
+      feedbacks.push(feedback);
+      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+    } else {
+      var feedbacks = JSON.parse(localStorage.getItem('feedbacks'));
+      feedbacks.push(feedback);
+      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+    }
+
+    document.getElementById("recipient-name").value = '';
+    document.getElementById("message-text").value = '';
+
+    displayFeedbacks(); // Call displayFeedbacks() to update feedback list
+    $('#exampleModal').modal('hide');
+  } else {
+    alert("Please fill in all fields.");
+  }
+}
+
+// Call displayFeedbacks() when the page loads
+displayFeedbacks();
+
 class ScrollHandler {
   constructor(buttonId) {
     this.button = document.getElementById(buttonId);

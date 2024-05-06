@@ -260,43 +260,36 @@
   </div>
 
   <!-- Comment -->
-  <!-- <div style="position: absolute; bottom: 0px" id="comment">
-    <div class="input-popup">
-      <input class="input" required type="text" id="username" />
-      <label class="label" for="username">Username</label>
-    </div>
-    <br />
-    <div class="input-popup">
-      <textarea name="comment" id="comment" cols="50" rows="3"></textarea>
-    </div>
-  </div>
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Up</button> -->
-
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Feedback</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Feedback</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="feedbackForm">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="sendMessage()">Send message</button>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<div class="container">
+  <h2 class="text-center mt-5">Comment List</h2>
+  <div id="feedbackList" class="mt-3"></div>
 </div>
 <!-- Footer -->
 <!-- <div class="container-fluid">

@@ -40,14 +40,13 @@ function sendMessage() {
     document.getElementById("recipient-name").value = '';
     document.getElementById("message-text").value = '';
 
-    displayFeedbacks(); // Call displayFeedbacks() to update feedback list
+    displayFeedbacks();
     $('#exampleModal').modal('hide');
   } else {
     alert("Please fill in all fields.");
   }
 }
 
-// Call displayFeedbacks() when the page loads
 displayFeedbacks();
 
 class ScrollHandler {

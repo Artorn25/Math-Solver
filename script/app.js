@@ -392,7 +392,7 @@ $(document).ready(function () {
     });
     $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #pic-poly-find-a, #select_poly, #select_name").show()
     $("#list-loga, #click-1, #click-2, #click-3, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #select_pytha, #comment").hide()
-    $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+    $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #showcomment").hide()
     document.getElementById("input-de-1").innerHTML = "<b>Input x : </b>"
     document.getElementById("input-de-2").innerHTML = "<b>Input b : </b>"
     document.getElementById("input-de-3").innerHTML = "<b>Input y : </b>"
@@ -426,7 +426,7 @@ $(document).ready(function () {
     });
 
     $("#input-c, #list, #click-1, #click-2, #click-3, #select_poly, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-b, #pic-pytha-find-c, #comment").hide()
-    $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+    $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #showcomment").hide()
     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
     document.getElementById("select_pytha").onclick = function () { S_pytha.selectPytha() }
     document.getElementById("submit").onclick = function () { ListPytha.ListPytha() }
@@ -438,7 +438,7 @@ $(document).ready(function () {
     $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
     $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #formula, #comment").hide();
     $("#pic-loga-gene").show()
-    $("#pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+    $("#pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #showcomment").hide()
     document.getElementById("input-de-1").innerHTML = "<b>Input Base : </b>";
     document.getElementById("input-de-2").innerHTML = "<b>Input Number : </b>";
     document.getElementById("list-loga").onclick = function () { S_loga.changeLoga() }

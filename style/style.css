@@ -210,4 +210,85 @@ img.mySlide {vertical-align: middle;}
   }
 }
 
+/* */
+.detail {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s;
+}
+
+.detail:hover {
+  transform: translateY(-10px);
+}
+
+
+.detail h2 {
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #007bff;
+}
+
+.detail h3 {
+  font-weight: 500;
+  color: #666;
+}
+
+.modal-header, .modal-footer {
+  border: none;
+}
+
+.modal-content {
+  border-radius: 12px;
+}
+
+.btn-close {
+  background: transparent;
+  border: none;
+}
+
+.btn-close:hover {
+  background: #e0e0e0;
+}
+
+#showcomment {
+  margin-top: 3rem;
+}
+
+.comment-item {
+  position: relative;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.comment-item:hover {
+  transform: translateY(-5px);
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff4d4f;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.delete-button:hover {
+  background: #ff7875;
+}
+
+.list-group-item {
+  border: none;
+}
 /* ------------------------- */

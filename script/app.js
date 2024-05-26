@@ -25,14 +25,26 @@ function displayFeedbacks() {
   var feedbackListDiv = document.getElementById('feedbackList');
 
   if (feedbacks !== null && feedbacks.length > 0) {
-    var html = '<div class="list-group">';
-    for (var i = 0; i < feedbacks.length; i++) {
-      html += '<div class="list-group-item"><strong>Name: </strong>' + feedbacks[i].name + '<br><strong>Comment: </strong>' + feedbacks[i].comment + '</div>';
-    }
-    html += '</div>';
-    feedbackListDiv.innerHTML = html;
+      var html = '<div class="list-group">';
+      for (var i = 0; i < feedbacks.length; i++) {
+          html += '<div class="list-group-item comment-item"><strong>Name: </strong>' + feedbacks[i].name + 
+                  '<br><strong>Comment: </strong>' + feedbacks[i].comment + 
+                  '<button class="delete-button" onclick="deleteFeedback(' + i + ')">Delete</button></div>';
+      }
+      html += '</div>';
+      feedbackListDiv.innerHTML = html;
   } else {
-    feedbackListDiv.innerHTML = '<p class="text-center">No feedbacks yet.</p>';
+      feedbackListDiv.innerHTML = '<p class="text-center">No feedbacks yet.</p>';
+  }
+}
+
+// Function to delete feedback
+function deleteFeedback(index) {
+  var feedbacks = JSON.parse(localStorage.getItem('feedbacks'));
+  if (feedbacks !== null && feedbacks.length > 0) {
+      feedbacks.splice(index, 1);
+      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+      displayFeedbacks();
   }
 }
 
@@ -42,28 +54,28 @@ function sendMessage() {
   var comment = document.getElementById("message-text").value;
 
   if (name.trim() !== '' && comment.trim() !== '') {
-    var feedback = {
-      name: name,
-      comment: comment
-    };
+      var feedback = {
+          name: name,
+          comment: comment
+      };
 
-    if (localStorage.getItem('feedbacks') === null) {
-      var feedbacks = [];
-      feedbacks.push(feedback);
-      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
-    } else {
-      var feedbacks = JSON.parse(localStorage.getItem('feedbacks'));
-      feedbacks.push(feedback);
-      localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
-    }
+      if (localStorage.getItem('feedbacks') === null) {
+          var feedbacks = [];
+          feedbacks.push(feedback);
+          localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+      } else {
+          var feedbacks = JSON.parse(localStorage.getItem('feedbacks'));
+          feedbacks.push(feedback);
+          localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+      }
 
-    document.getElementById("recipient-name").value = '';
-    document.getElementById("message-text").value = '';
+      document.getElementById("recipient-name").value = '';
+      document.getElementById("message-text").value = '';
 
-    displayFeedbacks();
-    $('#exampleModal').modal('hide');
+      displayFeedbacks();
+      $('#exampleModal').modal('hide');
   } else {
-    alert("Please fill in all fields.");
+      alert("Please fill in all fields.");
   }
 }
 

@@ -71,6 +71,16 @@
     animation: spinner-b87k6z 1s infinite linear;
 }
 /* ------------------------- */
+/* navbar */
+.navbar {
+  transition: background-color 0.5s ease;
+}
+
+/* CSS for smooth color transition on nav links */
+.nav-link {
+  transition: color 0.5s ease;
+}
+/* ------------------------- */
 /* logo */
 .logo{
     margin-left: 10px;

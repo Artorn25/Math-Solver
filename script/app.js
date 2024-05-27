@@ -81,26 +81,6 @@ function sendMessage() {
 
 displayFeedbacks();
 
-class ScrollHandler {
-  constructor(buttonId) {
-    this.button = document.getElementById(buttonId);
-    window.onscroll = () => this.scrollFunction();
-  }
-
-  scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      this.button.style.display = "block";
-    } else {
-      this.button.style.display = "none";
-    }
-  }
-
-  topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
-}
-
 class Loader {
   constructor(spinnerSelector) {
     this.loader = document.querySelector(spinnerSelector);
@@ -118,7 +98,6 @@ class Loader {
 }
 
 // ใช้งาน
-const scroll = new ScrollHandler("myBtn");
 const loader = new Loader(".spinner-box");
 
 function Function() {
@@ -403,6 +382,7 @@ const S_poly = new Selector_poly(),
   S_loga = new Selector_loga();
 
 $(document).ready(function () {
+  $('.navbar').hide().slideDown(1000);
   $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #select_poly, #select_pytha, #select_name").hide()
   $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
   $("#Polynomial").click(function () {

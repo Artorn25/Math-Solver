@@ -3,15 +3,14 @@ let slideIndex = 0;
 showSlides();
 
 function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
+  let slides = document.getElementsByClassName("mySlides"),
+      dots = document.getElementsByClassName("dot");
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
   }
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
+  for (let i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block";  
@@ -21,8 +20,8 @@ function showSlides() {
 
 // Function to display feedbacks
 function displayFeedbacks() {
-  var feedbacks = JSON.parse(localStorage.getItem('feedbacks'));
-  var feedbackListDiv = document.getElementById('feedbackList');
+  var feedbacks = JSON.parse(localStorage.getItem('feedbacks')),
+      feedbackListDiv = document.getElementById('feedbackList');
 
   if (feedbacks !== null && feedbacks.length > 0) {
       var html = '<div class="list-group">';
@@ -50,8 +49,8 @@ function deleteFeedback(index) {
 
 // Function to send message
 function sendMessage() {
-  var name = document.getElementById("recipient-name").value;
-  var comment = document.getElementById("message-text").value;
+  var name = document.getElementById("recipient-name").value,
+      comment = document.getElementById("message-text").value;
 
   if (name.trim() !== '' && comment.trim() !== '') {
       var feedback = {
@@ -73,7 +72,7 @@ function sendMessage() {
       document.getElementById("message-text").value = '';
 
       displayFeedbacks();
-      $('#exampleModal').modal('hide');
+      $('#Fillcomment').modal('hide');
   } else {
       alert("Please fill in all fields.");
   }

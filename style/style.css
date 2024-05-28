@@ -89,26 +89,29 @@
 }
 /* ------------------------- */
 /*  pic */
-.detail{
-    width:300px; 
-    height:300px; 
-    border-style:solid; 
-    border-color:black; 
-    text-align:center; 
-    border-radius:25px;
-    margin-top: 60px;
+.detail {
+  width: 100%; 
+  max-width: 300px;
+  height: 300px; 
+  border-style: solid; 
+  border-color: black; 
+  text-align: center; 
+  border-radius: 25px;
+  margin-top: 60px;
 }
 .detail h2 {
-    font-size: 1.5rem;
-  }
-  
+  font-size: 1.5rem;
+}
 .detail h3 {
-    font-size: 1.2rem;
-  }
-.detail img{
-    height: 125px; 
-    width: 125px; 
-    margin-top: 10px;
+  font-size: 1.2rem;
+}
+.detail img {
+  height: 125px; 
+  width: 125px; 
+  margin-top: 10px;
+}
+.detail img:hover {
+  opacity: 0.5;
 }
 /* ------------------------- */
 /* Comment */
@@ -233,7 +236,6 @@ img.mySlide {vertical-align: middle;}
 .detail:hover {
   transform: translateY(-10px);
 }
-
 
 .detail h2 {
   margin-top: 1rem;

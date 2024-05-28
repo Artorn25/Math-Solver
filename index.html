@@ -35,7 +35,7 @@
                       <a href="index.html" class="nav-link">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a href="/profile.html" class="nav-link">About us</a>
+                      <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#ShowPro" data-bs-whatever="@mdo">About us</a>
                   </li>
                   <li class="nav-item">
                       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=artorn.damn@gmail.com" class="nav-link">Contact</a>
@@ -228,34 +228,37 @@
     <p id="result" class="fw-bold"></p>
   </div>
   <!-- details -->
-  <div class="container-fluid d-flex align-items-center justify-content-evenly">
-    <div class="detail" id="click-1">
-      <a href="profile.html" data-bs-toggle="modal" data-bs-target="#ShowPro" data-bs-whatever="@mdo">
-        <img src="image/people.png"/> </a><br />
-      <h2>Profile</h2>
-      <br/>
-      <h3>Let's we introduce your self</h3>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+            <div class="detail" id="click-1">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#ShowPro" data-bs-whatever="@mdo">
+                    <img src="image/people.png" alt="Profile Image" />
+                </a>
+                <h2>Profile</h2>
+                <h3>Let's we introduce your self</h3>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+            <div class="detail" id="click-2">
+                <a href="Project Proposal CE321.pdf" target="_blank">
+                    <img src="image/project.png" alt="Project Image" />
+                </a>
+                <h2>What project is?</h2>
+                <h3>Math solver is a program for education</h3>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+            <div class="detail" id="click-3">
+                <a href="#comment" data-bs-toggle="modal" data-bs-target="#Fillcomment" data-bs-whatever="@mdo">
+                    <img src="image/Text.png" alt="Feedback Image" />
+                </a>
+                <h2>Feedback</h2>
+                <h3>Share your feedback with developer</h3>
+            </div>
+        </div>
     </div>
-    <div class="detail" id="click-2">
-      <a href="Project Proposal CE321.pdf" target="_blank">
-        <img src="image/project.png"/>
-      </a>
-      <br />
-      <h2>What project is?</h2>
-      <br />
-      <h3>Math solver is a program for education</h3>
-      <br />
-    </div>
-    <div class="detail" id="click-3">
-      <a href="#comment" data-bs-toggle="modal" data-bs-target="#Fillcomment" data-bs-whatever="@mdo">
-        <img src="image/Text.png"/></a>
-      <br />
-      <h2>Feedback</h2>
-      <br />
-      <h3>Share your feedback with devoloper</h3>
-      <br />
-    </div>
-  </div>
+</div>
 
   <!-- show pic -->
   <div class="modal fade" id="ShowPro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

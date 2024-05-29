@@ -246,6 +246,7 @@ class Selector_poly extends Selector {
       $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c").hide()
       $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
       document.getElementById("for").placeholder = " Example ax+b=0";
+      this.selectPoly();
     } else if (choice === "Quadratic") {
       $('#out').on('input', function () {
         var output = $("#out").val(); 
@@ -294,7 +295,7 @@ class Selector_pytha extends Selector {
         $("#pic-pytha-find-a").show()
         $("#pic-pytha-find-b, #pic-pytha-find-c").hide()
         this.updateInputs("Input b : ", "Input c : ", null, null)
-        this.updatePlaceholder("Example a", "Example b=2", "Example c=4", "Example y = 5")
+        this.updatePlaceholder("Example a", "Example b = 2", "Example c = 4", "Example y = 5")
         break;
       case 'b':
         $('#out').on('input', function () {
@@ -310,7 +311,7 @@ class Selector_pytha extends Selector {
         $("#pic-pytha-find-b").show()
         $("#pic-pytha-find-a, #pic-pytha-find-c").hide()
         this.updateInputs("Input a : ", "Input c : ", null, null)
-        this.updatePlaceholder("Example b", "Example a=2", "Example c=4", "Example y = 5")
+        this.updatePlaceholder("Example b", "Example a = 2", "Example c = 4", "Example y = 5")
         break;
       case 'c':
         $('#out').on('input', function () {
@@ -326,7 +327,7 @@ class Selector_pytha extends Selector {
         $("#pic-pytha-find-c").show()
         $("#pic-pytha-find-a, #pic-pytha-find-b").hide()
         this.updateInputs("Input a : ", "Input b : ", null, null)
-        this.updatePlaceholder("Example c", "Example a=2", "Example b=4", "Example y = 5")
+        this.updatePlaceholder("Example c", "Example a = 2", "Example b = 4", "Example y = 5")
         break;
     }
   }
@@ -386,7 +387,7 @@ $(document).ready(function () {
   $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
   $("#Polynomial").click(function () {
     $("#result").empty();
-    document.getElementById("Function").innerHTML = "Function Polynomial";
+    document.getElementById("Function").innerHTML = "<b>Function Polynomial<b>";
     document.getElementById("list-name").innerHTML = "Type Polynomial :";
     $('#out').on('input', function () {
       var output = $("#out").val(); 
@@ -414,7 +415,7 @@ $(document).ready(function () {
   });
   $("#Pythagorean").click(function () {
     $("#result").empty();
-    document.getElementById("Function").innerHTML = "Function Pythagorean"
+    document.getElementById("Function").innerHTML = "<b>Function Pythagorea<b>n"
     $("#output, #input-a, #input-b, #formula, #submit, #pic-pytha-find-a, #select_name, #select_pytha").show()
     document.getElementById("input-de-1").innerHTML = "<b>Input b : </b>"
     document.getElementById("input-de-2").innerHTML = "<b>Input c : </b>"
@@ -444,7 +445,7 @@ $(document).ready(function () {
   });
   $("#Logarithm").click(function () {
     $("#result").empty();
-    document.getElementById("Function").innerHTML = "Function Logarithm"
+    document.getElementById("Function").innerHTML = "<b>Function Logarithm<b>";
     document.getElementById("list-name").innerHTML = "Type Logarithm :"
     $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
     $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #formula, #comment").hide();

@@ -1,3 +1,7 @@
+function play() {
+  var sound = document.getElementById("audio");
+  sound.play();
+}
 //
 let slideIndex = 0;
 showSlides();
@@ -161,7 +165,7 @@ class Selector_poly extends Selector {
           });
         });
         $("#pic-poly-find-a").show()
-        $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y").hide()
+        $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #result-box").hide()
         this.updateInputs("Input x : ", "Input b : ", "Input y : ");
         this.updatePlaceholder(" Example a", " Example x = 3", "Example b = 2", "Example y = 5")
         break;
@@ -180,7 +184,7 @@ class Selector_poly extends Selector {
           });
         });
         $("#pic-poly-find-x").show()
-        $("#pic-poly-find-a, #pic-poly-find-b, #pic-poly-find-y").hide()
+        $("#pic-poly-find-a, #pic-poly-find-b, #pic-poly-find-y, #result-box").hide()
         this.updateInputs("Input a : ", "Input b : ", "Input y : ", " Example x");
         this.updatePlaceholder(" Example x", " Example a = 3", "Example b = 2", "Example y = 5")
         break;
@@ -199,7 +203,7 @@ class Selector_poly extends Selector {
           });
         });
         $("#pic-poly-find-b").show()
-        $("#pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-y").hide()
+        $("#pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-y, #result-box").hide()
         this.updateInputs("Input a : ", "Input x : ", "Input y : ", " Example b");
         this.updatePlaceholder(" Example b", " Example a = 3", "Example x = 2", "Example y = 5")
         break;
@@ -218,7 +222,7 @@ class Selector_poly extends Selector {
           });
         });
         $("#pic-poly-find-y").show()
-        $("#pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b").hide()
+        $("#pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #result-box").hide()
         this.updateInputs("Input a : ", "Input x : ", "Input b : ", " Example y");
         this.updatePlaceholder(" Example y", " Example a = 3", "Example x = 2", "Example b = 5")
         break;
@@ -243,7 +247,7 @@ class Selector_poly extends Selector {
         });
       });
       $("#pic-poly-find-a, #select_poly").show()
-      $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c").hide()
+      $("#pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #result-box").hide()
       $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
       document.getElementById("for").placeholder = " Example ax+b=0";
       this.selectPoly();
@@ -262,7 +266,7 @@ class Selector_poly extends Selector {
         });
       });
       $("#pic-poly-qua").show()
-      $("#select_poly, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #picture-3").hide()
+      $("#select_poly, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #picture-3, #result-box").hide()
       document.getElementById("input-de-1").innerHTML = "<b>Input a :</b>";
       document.getElementById("input-de-2").innerHTML = "<b>Input b :</b>";
       document.getElementById("input-de-3").innerHTML = "<b>Input c :</b>";
@@ -293,7 +297,7 @@ class Selector_pytha extends Selector {
           });
         });
         $("#pic-pytha-find-a").show()
-        $("#pic-pytha-find-b, #pic-pytha-find-c").hide()
+        $("#pic-pytha-find-b, #pic-pytha-find-c, #result-box").hide()
         this.updateInputs("Input b : ", "Input c : ", null, null)
         this.updatePlaceholder("Example a", "Example b = 2", "Example c = 4", "Example y = 5")
         break;
@@ -309,7 +313,7 @@ class Selector_pytha extends Selector {
           });
         });
         $("#pic-pytha-find-b").show()
-        $("#pic-pytha-find-a, #pic-pytha-find-c").hide()
+        $("#pic-pytha-find-a, #pic-pytha-find-c, #result-box").hide()
         this.updateInputs("Input a : ", "Input c : ", null, null)
         this.updatePlaceholder("Example b", "Example a = 2", "Example c = 4", "Example y = 5")
         break;
@@ -325,7 +329,7 @@ class Selector_pytha extends Selector {
           });
         });
         $("#pic-pytha-find-c").show()
-        $("#pic-pytha-find-a, #pic-pytha-find-b").hide()
+        $("#pic-pytha-find-a, #pic-pytha-find-b, #result-box").hide()
         this.updateInputs("Input a : ", "Input b : ", null, null)
         this.updatePlaceholder("Example c", "Example a = 2", "Example b = 4", "Example y = 5")
         break;
@@ -343,32 +347,32 @@ class Selector_loga extends Selector {
     switch (choice) {
       case "General Logarithm":
         $("#pic-loga-gene").show()
-        $("#pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+        $("#pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #result-box").hide()
         this.updateInputs(" Input Base : ", " Input Number : ", null, null);
         break;
       case "Logarithm of Product":
         $("#pic-loga-pro").show()
-        $("#pic-loga-gene, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+        $("#pic-loga-gene, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #result-box").hide()
         break;
       case "Logarithm of Division":
         $("#pic-loga-divi").show()
-        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #result-box").hide()
         break;
       case "Logarithm of Power":
         $("#pic-loga-power").show()
-        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #result-box").hide()
         break;
       case "Logarithm of Square Root":
         $("#pic-loga-squ").show()
-        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-natural, #pic-loga-base10").hide()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-natural, #pic-loga-base10, #result-box").hide()
         break;
       case "Natural Logarithm":
         $("#pic-loga-natural").show()
-        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-base10").hide()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-base10, #result-box").hide()
         break;
       case "Base 10 Logarithm":
         $("#pic-loga-base10").show()
-        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural").hide()
+        $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #result-box").hide()
         $("#input-a").hide();
         this.updateInputs(null, " Input Number : ", null, null);
         break;
@@ -384,7 +388,7 @@ const S_poly = new Selector_poly(),
 $(document).ready(function () {
   $('.navbar').hide().slideDown(1000);
   $("#output, #input-a, #input-b, #input-c, #list, #formula, #submit, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #select_poly, #select_pytha, #select_name").hide()
-  $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10").hide()
+  $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #result-box").hide()
   $("#Polynomial").click(function () {
     $("#result").empty();
     document.getElementById("Function").innerHTML = "<b>Function Polynomial<b>";
@@ -404,7 +408,7 @@ $(document).ready(function () {
     });
     $("#list, #list-poly, #output, #input-a, #input-b, #input-c, #formula, #submit, #pic-poly-find-a, #select_poly, #select_name").show()
     $("#list-loga, #click-1, #click-2, #click-3, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #select_pytha, #comment").hide()
-    $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #showcomment").hide()
+    $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #showcomment, #result-box").hide()
     document.getElementById("input-de-1").innerHTML = "<b>Input x : </b>"
     document.getElementById("input-de-2").innerHTML = "<b>Input b : </b>"
     document.getElementById("input-de-3").innerHTML = "<b>Input y : </b>"
@@ -436,8 +440,7 @@ $(document).ready(function () {
         $("#for").val(input + input_1);
       });
     });
-
-    $("#input-c, #list, #click-1, #click-2, #click-3, #select_poly, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-b, #pic-pytha-find-c, #comment").hide()
+    $("#input-c, #list, #click-1, #click-2, #click-3, #select_poly, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-b, #pic-pytha-find-c, #comment, #result-box").hide()
     $("#pic-loga-gene, #pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #showcomment").hide()
     document.getElementById("for").placeholder = " Example a^2+b^2=c^2";
     document.getElementById("select_pytha").onclick = function () { S_pytha.selectPytha() }
@@ -448,7 +451,7 @@ $(document).ready(function () {
     document.getElementById("Function").innerHTML = "<b>Function Logarithm<b>";
     document.getElementById("list-name").innerHTML = "Type Logarithm :"
     $("#list, #list-loga, #output, #input-a, #input-b, #submit").show();
-    $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #formula, #comment").hide();
+    $("#list-poly, #input-c, #click-1, #click-2, #click-3, #select_poly, #select_pytha, #select_name, #pic-poly-find-a, #pic-poly-find-x, #pic-poly-find-b, #pic-poly-find-y, #pic-poly-qua, #pic-pytha-find-a, #pic-pytha-find-b, #pic-pytha-find-c, #formula, #comment, #result-box").hide();
     $("#pic-loga-gene").show()
     $("#pic-loga-pro, #pic-loga-divi, #pic-loga-power, #pic-loga-squ, #pic-loga-natural, #pic-loga-base10, #showcomment").hide()
     document.getElementById("input-de-1").innerHTML = "<b>Input Base : </b>";
@@ -521,6 +524,7 @@ class Polynomial extends Functions {
                   let result = (input_y - input_b) / input_x; // (y-b)/x
                   if (for_poly === for_be) {
                     this.alert('success', null);
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = for_be + " = (" + input_y + "-" + input_b + ") / " + input_x
                       + "<br>" + out_a + " = " + result;
                   } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
@@ -540,12 +544,12 @@ class Polynomial extends Functions {
               if (in_a === this.a.value + "=" && in_b === this.b.value + "=" && in_y === this.c.value + "=") {
                 if (typeof new_value_a === "number" && typeof new_value_b === "number" && typeof new_value_y == "number") {
                   let for_poly = this.replacedspace(this.for.value), // ax+b=y || y=ax+b
-                    // for_in = input_a + out_x + "+" + input_b + "=" + input_y, // ax+b=y
                     for_be = input_y + "=" + input_a + out_x + "+" + input_b;
                   input_a = new_value_a, input_b = new_value_b, input_y = new_value_y;
                   let result = (input_y - input_b) / input_a; // (y-b)/x
                   if (for_poly === for_be) {
                     this.alert('success', null);
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = for_be + " = (" + input_y + "-" + input_b + ") / " + input_a
                       + "<br>" + out_x + " = " + result;
                   } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
@@ -566,11 +570,12 @@ class Polynomial extends Functions {
                 if (typeof new_value_a === "number" && typeof new_value_x === "number" && typeof new_value_y == "number") {
                   let for_poly = this.replacedspace(this.for.value), // ax+b=y || y=ax+b
                     for_be = input_y + "=" + input_a + input_x + "+" + out_b; // y=ax+b
-                  input_a = new_value_a, input_x = new_value_x, input_y = new_value_y;
+                    input_a = new_value_a, input_x = new_value_x, input_y = new_value_y;
                   let result = input_y / (input_a * input_x); // b/ax
                   if (for_poly === for_be) {
                     this.alert('success', null);
-                    document.getElementById('result').innerHTML = for_in + " = " + input_y + " / " + input_a + " * " + input_x
+                    $("#result-box").show();
+                    document.getElementById('result').innerHTML = for_be + " = " + input_y + " / " + input_a + " * " + input_x
                       + "<br>" + out_b + " = " + result;
                   } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
                 } else { this.alert('fail', 'Failed because define value in variable is not correct') }
@@ -592,9 +597,9 @@ class Polynomial extends Functions {
                     for_be = out_y + "=" + input_a + input_x + "+" + input_b; // y=ax+b
                   input_a = new_value_a, input_x = new_value_x, input_b = new_value_b;
                   let result = (input_a * input_x) + input_b; // ax+b
-                  console.log(for_be)
                   if (for_poly === for_be) {
                     this.alert('success', null);
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = for_be + " = " + input_a + " * " + input_x + " + " + input_b
                       + "<br>" + out_y + " = " + result;
                   } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
@@ -624,6 +629,7 @@ class Polynomial extends Functions {
                   if (isNaN(result2)) result2 = "Can't define value";
                 } else if (isNaN(result2)) { result2 = "Can't define value"; }
                 this.alert('success', null);
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = out + " = " + result + " , " + result2;
               } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
             } else { this.alert('fail', 'Failed because define value in variable is not correct') }
@@ -660,8 +666,10 @@ class Pythagorean extends Functions {
                   this.alert('success', null);
                   if (isNaN(result_after)) {
                     result_after = "Can't define value";
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = out_a + "^2 = " + result + " , " + out_a + " = " + result_after;
                   } else {
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = out_a + "^2 = " + result + " , " + out_a + " = " + result_after.toFixed(4);
                   }
                 } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
@@ -687,8 +695,10 @@ class Pythagorean extends Functions {
                   this.alert('success', null);
                   if (isNaN(result_after)) {
                     result_after = "Can't define value";
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = out_b + "^2 = " + result + " ," + out_b + " = " + result_after;
                   } else {
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = out_b + "^2 = " + result + " ," + out_b + " = " + result_after.toFixed(4);
                   }
                 } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
@@ -714,8 +724,10 @@ class Pythagorean extends Functions {
                   this.alert('success', null);
                   if (isNaN(result_after)) {
                     result_after = "Can't define value";
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after;
                   } else {
+                    $("#result-box").show();
                     document.getElementById('result').innerHTML = out_c + "^2 = " + result + " ," + out_c + " = " + result_after.toFixed(4);
                   }
                 } else { this.alert('fail', 'Failed because formula is null or formula is not correct') }
@@ -749,8 +761,10 @@ class Logarithm extends Functions {
               this.alert('success', null);
               if (isNaN(result)) {
                 result = "Can't define value";
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log<sub>" + base + "</sub>(" + num + ") = log<sub>" + base_number + "</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
               } else {
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log<sub>" + base + "</sub>(" + num + ") = log<sub>" + base_number + "</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
               }
             } else { this.alert('fail', 'Failed because define value in variable is not correct') }
@@ -770,8 +784,10 @@ class Logarithm extends Functions {
               this.alert('success', null);
               if (isNaN(result)) {
                 result = "Can't define value";
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log(" + num + "*" + num + ") = log(" + number + "*" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
               } else {
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log(" + num + "*" + num + ") = log(" + number + "*" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
               }
             } else { this.alert('fail', 'Failed because define value in variable is not correct') }
@@ -791,8 +807,10 @@ class Logarithm extends Functions {
               this.alert('success', null);
               if (isNaN(result)) {
                 result = "Can't define value";
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log(" + num + "/" + num + ") = log(" + number + "/" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
               } else {
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log(" + num + "/" + num + ") = log(" + number + "/" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
               }
             } else { this.alert('fail', 'Failed because define value in variable is not correct') }
@@ -812,8 +830,10 @@ class Logarithm extends Functions {
               this.alert('success', null);
               if (isNaN(result)) {
                 result = "Can't define value";
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log(" + num + "^" + num + ") = log(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
               } else {
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log(" + num + "^" + num + ") = log(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
               }
             } else { this.alert('fail', 'Failed because define value in variable is not correct') }
@@ -833,8 +853,10 @@ class Logarithm extends Functions {
               this.alert('success', null);
               if (isNaN(result)) {
                 result = "Can't define value";
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log(√" + num + ") = log(√" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
               } else {
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log(√" + num + ") = log(√" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
               }
             } else { this.alert('fail', 'Failed because define value in variable is not correct') }
@@ -854,8 +876,10 @@ class Logarithm extends Functions {
               this.alert('success', null);
               if (isNaN(result)) {
                 result = "Can't define value";
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "ln(" + num + "^" + num + ") = ln(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
               } else {
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "ln(" + num + "^" + num + ") = ln(" + number + "^" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
               }
             } else { this.alert('fail', 'Failed because define value in variable is not correct') }
@@ -875,8 +899,10 @@ class Logarithm extends Functions {
               this.alert('success', null);
               if (isNaN(result)) {
                 result = "Can't define value";
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log<sub>10</sub>(" + num + ") = log<sub>10</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result;
               } else {
+                $("#result-box").show();
                 document.getElementById('result').innerHTML = "log<sub>10</sub>(" + num + ") = log<sub>10</sub>(" + number + ") = " + out + "<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = " + result.toFixed(4);
               }
             } else { this.alert('fail', 'Failed because define value in variable is not correct') }

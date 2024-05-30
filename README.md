@@ -1,4 +1,4 @@
-> # Math Solver 
+> # Math Solver [(Link)](https://math-solver-ver1.netlify.app/)
 ## Create by 👦 👧
 1. Mr. Sattawut Singtee 
 2. Mrs. Kamonchanok Pukamrung

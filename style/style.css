@@ -93,6 +93,31 @@ html {
     margin-bottom: 15px;
 }
 /* ------------------------- */
+/* result */
+#result-box {
+  margin-top: 2rem;
+}
+
+.result-card {
+  background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+  border: 2px solid #00aaff;
+}
+
+.result-card .card-body {
+  padding: 2rem;
+}
+
+#result {
+  color: #007acc;
+  font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  #result {
+    font-size: 2rem;
+  }
+}
+/* ------------------------- */
 /*  pic */
 .detail {
   width: 100%; 

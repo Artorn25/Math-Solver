@@ -48,7 +48,7 @@
 
 - ### Tools to using with project 📌
     - JQuery<br>
-    - BootStrap 5<br>
+    - BootStrap 5.3<br>
 - ###  Technique ✏️
     - <b>Object Oriented Programming</b>
         - Inheritance

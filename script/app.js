@@ -1,6 +1,6 @@
-function play() {
+function Play() {
   var sound = document.getElementById("audio");
-  sound.play();
+  sound.Play();
 }
 //
 let slideIndex = 0;
@@ -23,36 +23,36 @@ function showSlides() {
 }
 
 // Function to display feedbacks
-function displayFeedbacks() {
+function DisplayFeedbacks() {
   var feedbacks = JSON.parse(localStorage.getItem('feedbacks')),
-      feedbackListDiv = document.getElementById('feedbackList');
+      feedbackList = document.getElementById('feedbackList');
 
   if (feedbacks !== null && feedbacks.length > 0) {
       var html = '<div class="list-group">';
       for (var i = 0; i < feedbacks.length; i++) {
           html += '<div class="list-group-item comment-item"><strong>Name: </strong>' + feedbacks[i].name + 
                   '<br><strong>Comment: </strong>' + feedbacks[i].comment + 
-                  '<button class="delete-button" onclick="deleteFeedback(' + i + ')">Delete</button></div>';
+                  '<button class="delete-button" onclick="DeleteFeedback(' + i + ')">Delete</button></div>';
       }
       html += '</div>';
-      feedbackListDiv.innerHTML = html;
+      feedbackList.innerHTML = html;
   } else {
-      feedbackListDiv.innerHTML = '<p class="text-center">No feedbacks yet.</p>';
+      feedbackList.innerHTML = '<p class="text-center">No feedbacks yet.</p>';
   }
 }
 
 // Function to delete feedback
-function deleteFeedback(index) {
+function DeleteFeedback(index) {
   var feedbacks = JSON.parse(localStorage.getItem('feedbacks'));
   if (feedbacks !== null && feedbacks.length > 0) {
       feedbacks.splice(index, 1);
       localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
-      displayFeedbacks();
+      DisplayFeedbacks();
   }
 }
 
 // Function to send message
-function sendMessage() {
+function SendMessage() {
   var name = document.getElementById("recipient-name").value,
       comment = document.getElementById("message-text").value;
 
@@ -75,14 +75,14 @@ function sendMessage() {
       document.getElementById("recipient-name").value = '';
       document.getElementById("message-text").value = '';
 
-      displayFeedbacks();
+      DisplayFeedbacks();
       $('#Fillcomment').modal('hide');
   } else {
       alert("Please fill in all fields.");
   }
 }
 
-displayFeedbacks();
+DisplayFeedbacks();
 
 class Loader {
   constructor(spinnerSelector) {
@@ -100,7 +100,7 @@ class Loader {
   }
 }
 
-// ใช้งาน
+// Load
 const loader = new Loader(".spinner-box");
 
 function Function() {

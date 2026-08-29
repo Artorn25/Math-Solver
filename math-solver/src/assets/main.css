@@ -1,0 +1,102 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Platypi', ui-serif, Georgia, serif;
+  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #14364b;
+  --color-ink-soft: #3d5a6c;
+  --color-mist: #e7f1ec;
+  --color-paper: #f5f9f7;
+  --color-line: #c9d9d1;
+  --color-teal: #1f6f8b;
+  --color-teal-deep: #15566c;
+  --color-mark: #d4a017;
+  --color-ok: #1f8a6a;
+  --color-err: #c23b3b;
+  --color-surface: #ffffff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-paper);
+    background-image:
+      linear-gradient(180deg, rgb(231 241 236 / 0.9), rgb(245 249 247 / 0.95)),
+      linear-gradient(rgb(201 217 209 / 0.45) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(201 217 209 / 0.45) 1px, transparent 1px);
+    background-size:
+      auto,
+      28px 28px,
+      28px 28px;
+    background-attachment: fixed;
+  }
+
+  #app {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-teal) 28%, white);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .animate-rise {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-rise-delay {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.45s ease both;
+  }
+
+  .animate-result {
+    animation: result-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes result-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

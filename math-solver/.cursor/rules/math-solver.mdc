@@ -1,0 +1,19 @@
+---
+description: Math Solver app conventions for Vue agents
+alwaysApply: true
+---
+
+# Math Solver
+
+Follow root `AGENTS.md`.
+
+## Must keep
+
+- Number-only solver inputs (no `x = 3` text)
+- Auto formula preview; never require users to type the formula
+- Tailwind tokens from `src/assets/main.css` (no Bootstrap)
+
+## Touch points
+
+- Solver UX/logic: `src/composables/useMathSolver.ts` + `src/components/MathSolver.vue`
+- Shell: `src/App.vue`
